@@ -11,6 +11,9 @@ that came up along the way — a reward-gaming exploit found via playback, a
 sim-to-real actuator recalibration, and an ablation study that root-caused a
 standing-instability bug to noisy real joint-velocity feedback.
 
+See [`RESTORE.md`](RESTORE.md) for the exact Isaac Sim/Isaac Lab versions this
+was built against and how to stand the environment back up from scratch.
+
 ## Repo layout
 
 ```
