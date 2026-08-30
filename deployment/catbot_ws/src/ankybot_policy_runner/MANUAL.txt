@@ -1,0 +1,83 @@
+ankybot_policy_runner — parameter manual
+==========================================
+
+This covers the parameters in config/ankybot_policy.yaml (and the matching
+declare_parameter calls in policy_runner.py). Each control tick (every
+control_dt seconds) the node builds a 48-value observation, runs it through
+the ONNX policy, and turns the output into a joint target published on
+/joint_commands. The paragraphs below walk that pipeline in order.
+
+action_scale and action_clip together define how the policy's raw output
+turns into radians: the raw output is first clipped to +/-action_clip, then
+multiplied by action_scale, then added to each joint's default position.
+These two MUST match ActionsCfg.joint_position in the sim training config
+exactly (scale=0.4, clip=(-1.4923, 1.4923) currently) — they are not tuning
+knobs, they are a contract with whatever policy.onnx you load. Changing
+either one without retraining just makes every commanded joint angle wrong
+by a fixed multiplicative/clipping factor: raising action_scale makes every
+motion larger and more likely to slam into joint limits or the effort
+limit; lowering it makes every motion smaller and gait tracking will
+generally get worse since the policy's chosen actions no longer reach where
+it intended them to.
+
+action_filter_alpha controls exponential smoothing applied to the raw
+policy output before it's scaled into a joint target:
+filtered = alpha*filtered + (1-alpha)*raw. At alpha=0 there is no smoothing
+at all (matches how the sim actually trained the policy — raw action
+applied directly every step). As alpha approaches 1, the filtered value
+barely moves each tick, meaning fast/large commanded swings get cut down in
+amplitude before they're ever reached, and the effective response lags the
+policy's true intent by roughly control_dt/(1-alpha) seconds. This is a
+pure deploy-time addition with no equivalent in training, so it is the
+single most likely place for a "trained motion doesn't match observed
+motion" mismatch to hide. Higher alpha = smoother/safer-looking but
+smaller and more delayed motion; lower alpha = truer to what the policy
+actually learned, but any real jitter/noise that alpha was compensating for
+(deliberately or not) will show up more directly in servo commands.
+
+control_dt sets both the timer period the node runs its control loop at
+and (implicitly, via the observation the policy expects) the rate the
+policy was trained to be queried at. It must equal decimation*sim.dt from
+the training env config (currently 10*0.002=0.02s, 50Hz). Changing this
+without retraining desyncs the policy's internal notion of "how much time
+passes between actions" from reality — a real robot running slower or
+faster than the trained rate will drift from the intended dynamics even
+though the maths look identical every step.
+
+default_joint_pos_rad and joint_names define the zero-point and ordering
+the policy was trained around: every joint target is default_pos +
+scale*filtered_action, so if this array doesn't match the *specific
+deployed checkpoint's own* training pose exactly, every joint's actual
+angle is offset from what the policy assumes its own action means, and
+joint_names' order must match the training joint order (type-first,
+alphabetical by leg) or entire limbs get scrambled onto the wrong physical
+servo. Currently hip=0, thigh=+0.5236 rad, foot=+0.5236 rad, matching
+logs/rsl_rl/v4/base_scratch_feet30/params/env.yaml (corrected 2026-07-23,
+twice - the first correction guessed 0.7854 from ankybot_v3.py's live
+value, which was mid-flight through same-day pose experiments and didn't
+match the actual deployed checkpoint; see the yaml's own comment for the
+full story). Always check the deployed checkpoint's own params/env.yaml
+while pose experiments are ongoing, not ankybot_v3.py's live value.
+
+max_joint_vel_rad_s and publish_rate_hz (added 2026-07-21, missing from
+this manual until 2026-07-23) apply after action_filter_alpha:
+max_joint_vel_rad_s hard-caps how far the goal can move per control tick
+(rad/s), and publish_rate_hz subdivides each tick's move into smaller
+interpolated sub-steps so a real servo (no compliance, unlike sim's
+actuator model) doesn't see discrete snaps. See ankybot_policy.yaml's own
+comments for the full rationale/tuning history on both.
+
+cmd_vel_timeout is a safety cutoff, unrelated to gait shape: if no
+/cmd_vel message has arrived within this many seconds, the commanded
+velocity is zeroed out before being fed to the policy (so a lost
+connection results in the robot trying to stand still, not continuing to
+run the last command blind). Raising it makes the robot keep obeying a
+stale command for longer after a comms drop; lowering it makes it revert
+to standing-still sooner, at the cost of being more sensitive to brief
+/cmd_vel gaps under normal operation.
+
+The four topic parameters (imu_topic, cmd_vel_topic, joint_states_topic,
+servo_cmd_topic) just point the node at the right ROS topics — changing
+these doesn't affect gait behavior at all, only which topics the data
+flows through, and only matters if the rest of the pipeline (IMU
+publisher, joystick/teleop node, serial/I2C bridge) is remapped to match.

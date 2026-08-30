@@ -1,0 +1,4 @@
+[2026-07-09 15:15:26,535][isaaclab.app.app_launcher][INFO] - Using device: cuda:0
+[2026-07-09 15:15:26,536][isaaclab.app.app_launcher][INFO] - Loading experience file: /workspace/isaaclab/apps/isaaclab.python.kit
+[2026-07-09 15:15:27,322][asyncio][DEBUG] - Using selector: EpollSelector
+[2026-07-09 15:15:36,826][trimesh.util][DEBUG] - falling back to hashlib hashing: `pip install xxhash`for 50x faster cache checks

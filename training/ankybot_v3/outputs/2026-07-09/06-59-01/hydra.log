@@ -1,0 +1,4 @@
+[2026-07-09 06:59:02,321][isaaclab.app.app_launcher][INFO] - No visualizer was selected, so running in headless mode. To launch a visualizer app, pass '--viz <names>' (for example '--viz kit').
+[2026-07-09 06:59:02,321][isaaclab.app.app_launcher][INFO] - Using device: cuda:0
+[2026-07-09 06:59:02,322][isaaclab.app.app_launcher][INFO] - Loading experience file: /workspace/isaaclab/apps/isaaclab.python.headless.kit
+[2026-07-09 06:59:02,702][asyncio][DEBUG] - Using selector: EpollSelector

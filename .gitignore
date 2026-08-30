@@ -1,0 +1,17 @@
+# Python
+__pycache__/
+*.pyc
+*.egg-info/
+
+# ROS 2 colcon build artifacts
+build/
+install/
+log/
+
+# Local tool config (personal, not project content)
+**/.claude/
+
+# Isaac Lab / rsl_rl training bloat (keep only final exported policies + run metadata)
+**/logs/**/model_*.pt
+**/logs/**/events.out.tfevents.*
+**/logs/**/*.tfevents.*

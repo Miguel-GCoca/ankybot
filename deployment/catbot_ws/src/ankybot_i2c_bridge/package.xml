@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>ankybot_i2c_bridge</name>
+  <version>0.1.15</version>
+  <description>
+    C++ I2C bridge: pca9685_commander_node drives the PCA9685 servo driver
+    directly from the Pi over I2C (subscribes /joint_commands), and
+    mega_feedback_reader_node polls the Arduino Mega's I2C feedback slave
+    (arduino_mega_i2c_slave.ino) and republishes /joint_states. Replaces the
+    old serial_communication_py package (serial-based bridge and its Python
+    I2C fallback nodes), deleted 2026-07-20 - this is now the only I2C
+    actuation path.
+  </description>
+  <maintainer email="mingus@todo.todo">mingus</maintainer>
+  <license>TODO: License declaration</license>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+
+  <depend>rclcpp</depend>
+  <depend>sensor_msgs</depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>

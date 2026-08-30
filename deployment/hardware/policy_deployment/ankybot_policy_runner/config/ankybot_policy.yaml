@@ -1,0 +1,60 @@
+policy_runner:
+  ros__parameters:
+    # Path to the exported ONNX policy. Overridden at launch time by the
+    # policy_path launch argument, which defaults to policy/policy.onnx inside
+    # the installed package share. Set explicitly if loading from another path:
+    #   ros2 launch ankybot_policy_runner policy_runner.launch.py \
+    #       policy_path:=/abs/path/to/policy.onnx
+    policy_path: ""
+
+    # MUST match training: decimation(10) * sim.dt(0.002) = 0.02s -> 50Hz
+    control_dt: 0.02
+
+    # exponential smoothing on policy output, 0 = no smoothing, closer to
+    # 1 = heavier smoothing
+    action_filter_alpha: 0.8
+
+    # from ActionsCfg.joint_position (scale=0.4)
+    action_scale: 0.4
+    action_clip: 1.4923
+
+    # joint order MUST match PhysX articulation: type-first, alphabetical by leg
+    # [BL,BR,FL,FR]_Hip, [BL,BR,FL,FR]_Thigh, [BL,BR,FL,FR]_Foot
+    joint_names:
+      - BL_Hip_Joint
+      - BR_Hip_Joint
+      - FL_Hip_Joint
+      - FR_Hip_Joint
+      - BL_Thigh_Joint
+      - BR_Thigh_Joint
+      - FL_Thigh_Joint
+      - FR_Thigh_Joint
+      - BL_Foot_Joint
+      - BR_Foot_Joint
+      - FL_Foot_Joint
+      - FR_Foot_Joint
+
+    # absolute default joint positions (rad) matching init_state in training.
+    # hip=0.0, thigh=+0.5236 (~30deg), foot=+0.3840 (~22deg)
+    default_joint_pos_rad:
+      [0.0, 0.0, 0.0, 0.0,
+       0.5236, 0.5236, 0.5236, 0.5236,
+       0.3840, 0.3840, 0.3840, 0.3840]
+
+    # topics
+    imu_topic: "/imu/data"
+    cmd_vel_topic: "/ankybot/cmd_vel"
+    joint_states_topic: "/ankybot/joint_states"
+    servo_cmd_topic: "/joint_commands"
+    height_command_topic: "/height_command"
+
+    # commanded height in metres if no /height_command topic received
+    default_height_command: 0.24
+
+    # if no /cmd_vel received within this many seconds, command zero velocity
+    cmd_vel_timeout: 1.0
+
+    # True  -> 49-obs height env (inserts height_command after velocity_commands)
+    # False -> 48-obs standard env (e.g. v3_env/low_gait_rew/model_999.pt)
+    # Overridden by the use_height_command launch argument.
+    use_height_command: true

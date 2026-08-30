@@ -1,0 +1,63 @@
+no_sensor_policy:
+  ros__parameters:
+    # Path to the exported ONNX policy for the Ankybot-Static-v3 env_cfg
+    # (36-obs: joint_pos + joint_vel + last_action). No default checkpoint
+    # exists yet - pass explicitly at launch time:
+    #   ros2 launch ankybot_policy_runner no_sensor_policy.launch.py \
+    #       policy_path:=/abs/path/to/policy.onnx
+    policy_path: ""
+
+    # MUST match training: decimation(10) * sim.dt(0.002) = 0.02s -> 50Hz
+    control_dt: 0.02
+
+    # exponential smoothing on policy output, 0 = no smoothing, closer to
+    # 1 = heavier smoothing
+    action_filter_alpha: 0.8
+
+    # hard cap on the goal's slew rate (rad/s), applied after the filter
+    # above - see ankybot_policy.yaml for the full rationale (added
+    # 2026-07-21, raised 3.0 -> 8.0 same day after it was found to clip
+    # legitimate gait swing velocity). Still an estimate, not measured.
+    max_joint_vel_rad_s: 8.0
+
+    # rate /joint_commands is actually published at (Hz) - see
+    # ankybot_policy.yaml for the full rationale (added 2026-07-21).
+    publish_rate_hz: 200.0
+
+    # from ActionsCfg.joint_position (scale=0.4)
+    action_scale: 0.4
+    action_clip: 1.4923
+
+    # joint order MUST match PhysX articulation: type-first, alphabetical by leg
+    # [BL,BR,FL,FR]_Hip, [BL,BR,FL,FR]_Thigh, [BL,BR,FL,FR]_Foot
+    joint_names:
+      - BL_Hip_Joint
+      - BR_Hip_Joint
+      - FL_Hip_Joint
+      - FR_Hip_Joint
+      - BL_Thigh_Joint
+      - BR_Thigh_Joint
+      - FL_Thigh_Joint
+      - FR_Thigh_Joint
+      - BL_Foot_Joint
+      - BR_Foot_Joint
+      - FL_Foot_Joint
+      - FR_Foot_Joint
+
+    # absolute default joint positions (rad) matching init_state in training.
+    # hip=0.0, thigh=+0.5236 (~30deg), foot=+0.7854 (~45deg)
+    # foot corrected 0.3840 -> 0.7854 on 2026-07-23, same bug/reason as
+    # ankybot_policy.yaml - AnkybotV3StaticEnvCfg shares ANKYBOT_CFG's
+    # init_state.joint_pos with the standard env.
+    default_joint_pos_rad:
+      [0.0, 0.0, 0.0, 0.0,
+       0.5236, 0.5236, 0.5236, 0.5236,
+       0.7854, 0.7854, 0.7854, 0.7854]
+
+    # topics
+    servo_cmd_topic: "/joint_commands"
+    joint_states_topic: "/joint_states"
+
+    # how often to log the comms-diagnostic line (Hz of joint_commands
+    # published, Hz + sample of joint_states received)
+    diag_log_period: 1.0

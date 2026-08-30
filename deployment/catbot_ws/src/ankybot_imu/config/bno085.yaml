@@ -1,0 +1,6 @@
+bno085_publisher:
+  ros__parameters:
+    imu_topic: /imu/data
+    frame_id: base_link
+    i2c_address: 74      # 0x4A
+    publish_rate_hz: 50.0

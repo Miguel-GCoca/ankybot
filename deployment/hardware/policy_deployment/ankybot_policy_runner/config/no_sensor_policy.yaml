@@ -1,0 +1,50 @@
+no_sensor_policy:
+  ros__parameters:
+    # Path to the exported ONNX policy. Overridden at launch time by the
+    # policy_path launch argument, which defaults to the no_pos_no_imu/v1
+    # training run's exported checkpoint. Override explicitly with:
+    #   ros2 launch ankybot_policy_runner no_sensor_policy.launch.py \
+    #       policy_path:=/abs/path/to/policy.onnx
+    policy_path: ""
+
+    # MUST match training: decimation(10) * sim.dt(0.002) = 0.02s -> 50Hz
+    control_dt: 0.02
+
+    # exponential smoothing on policy output, 0 = no smoothing, closer to
+    # 1 = heavier smoothing
+    action_filter_alpha: 0.8
+
+    # from ActionsCfg.joint_position (scale=0.4)
+    action_scale: 0.4
+    action_clip: 1.4923
+
+    # joint order MUST match PhysX articulation: type-first, alphabetical by leg
+    # [BL,BR,FL,FR]_Hip, [BL,BR,FL,FR]_Thigh, [BL,BR,FL,FR]_Foot
+    joint_names:
+      - BL_Hip_Joint
+      - BR_Hip_Joint
+      - FL_Hip_Joint
+      - FR_Hip_Joint
+      - BL_Thigh_Joint
+      - BR_Thigh_Joint
+      - FL_Thigh_Joint
+      - FR_Thigh_Joint
+      - BL_Foot_Joint
+      - BR_Foot_Joint
+      - FL_Foot_Joint
+      - FR_Foot_Joint
+
+    # absolute default joint positions (rad) matching init_state in training.
+    # hip=0.0, thigh=+0.5236 (~30deg), foot=+0.3840 (~22deg)
+    default_joint_pos_rad:
+      [0.0, 0.0, 0.0, 0.0,
+       0.5236, 0.5236, 0.5236, 0.5236,
+       0.3840, 0.3840, 0.3840, 0.3840]
+
+    # topics
+    servo_cmd_topic: "/joint_commands"
+    joint_states_topic: "/joint_states"
+
+    # how often to log the comms-diagnostic line (Hz of joint_commands
+    # published, Hz + sample of joint_states received)
+    diag_log_period: 1.0

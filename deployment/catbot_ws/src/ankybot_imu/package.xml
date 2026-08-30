@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematron="http://download.ros.org/schema/package_format3.xsd"?>
+<package format="3">
+  <name>ankybot_imu</name>
+  <version>0.2.3</version>
+  <description>BNO085 IMU driver, wired directly to the Pi 5 I2C pins, publishing sensor_msgs/Imu</description>
+  <maintainer email="you@example.com">mingus</maintainer>
+  <license>MIT</license>
+
+  <depend>rclpy</depend>
+  <depend>sensor_msgs</depend>
+
+  <export>
+    <build_type>ament_python</build_type>
+  </export>
+</package>

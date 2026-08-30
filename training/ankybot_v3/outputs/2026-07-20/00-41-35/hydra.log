@@ -1,0 +1,5 @@
+[2026-07-20 00:41:35,510][isaaclab.app.app_launcher][INFO] - No visualizer was selected, so running in headless mode. To launch a visualizer app, pass '--viz <names>' (for example '--viz kit').
+[2026-07-20 00:41:35,510][isaaclab.app.app_launcher][INFO] - Using device: cuda:0
+[2026-07-20 00:41:35,512][isaaclab.app.app_launcher][INFO] - Loading experience file: /workspace/isaaclab/apps/isaaclab.python.headless.kit
+[2026-07-20 00:41:35,810][asyncio][DEBUG] - Using selector: EpollSelector
+[2026-07-20 00:41:40,495][isaaclab_physx.physics.physx_manager][WARNING] - TGS solver with enable_external_forces_every_iteration=False may cause noisy velocities.
