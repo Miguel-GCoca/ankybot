@@ -1,0 +1,373 @@
+#usda 1.0
+(
+    customLayerData = {
+        string creator = "URDF USD Converter v0.1.0"
+    }
+    defaultPrim = "tn__FullBotTest2URDFSLDASM_pX0"
+    doc = """Generated from Composed Stage of root layer /tmp/tmp_s7v8nw4/FullBotTest2URDF.SLDASM.usdc
+
+
+Generated from Composed Stage of root layer /workspace/custom_assets/Ankybot_v1_description/FullBotTest2URDF.SLDASM/urdf/usdex/FullBotTest2URDF.SLDASM.usdc
+
+
+Generated from Composed Stage of root layer /workspace/custom_assets/Ankybot_v1_description/FullBotTest2URDF.SLDASM/urdf/temp/FullBotTest2URDF.usd
+
+
+Generated from Composed Stage of root layer /workspace/custom_assets/Ankybot_v1_description/FullBotTest2URDF.SLDASM/urdf/FullBotTest2URDF/payloads/base.usd
+"""
+    kilogramsPerUnit = 1
+    metersPerUnit = 1
+    subLayers = [
+        @./physics.usda@
+    ]
+    upAxis = "Z"
+)
+
+over "tn__FullBotTest2URDFSLDASM_pX0"
+{
+    over "Physics"
+    {
+        def MjcActuator "FLUpperHipJoint_actuator"
+        {
+            uniform double mjc:forceRange:max = inf
+            uniform double mjc:forceRange:min = -inf
+            custom rel mjc:target = </tn__FullBotTest2URDFSLDASM_pX0/Physics/FLUpperHipJoint>
+        }
+
+        def MjcActuator "FLLowerHipJoint_actuator"
+        {
+            uniform double mjc:forceRange:max = inf
+            uniform double mjc:forceRange:min = -inf
+            custom rel mjc:target = </tn__FullBotTest2URDFSLDASM_pX0/Physics/FLLowerHipJoint>
+        }
+
+        def MjcActuator "FLKneeJoint_actuator"
+        {
+            uniform double mjc:forceRange:max = inf
+            uniform double mjc:forceRange:min = -inf
+            custom rel mjc:target = </tn__FullBotTest2URDFSLDASM_pX0/Physics/FLKneeJoint>
+        }
+
+        def MjcActuator "FRUpperHipJoint_actuator"
+        {
+            uniform double mjc:forceRange:max = inf
+            uniform double mjc:forceRange:min = -inf
+            custom rel mjc:target = </tn__FullBotTest2URDFSLDASM_pX0/Physics/FRUpperHipJoint>
+        }
+
+        def MjcActuator "FRLowerHipJoint_actuator"
+        {
+            uniform double mjc:forceRange:max = inf
+            uniform double mjc:forceRange:min = -inf
+            custom rel mjc:target = </tn__FullBotTest2URDFSLDASM_pX0/Physics/FRLowerHipJoint>
+        }
+
+        def MjcActuator "FRKneeJoint_actuator"
+        {
+            uniform double mjc:forceRange:max = inf
+            uniform double mjc:forceRange:min = -inf
+            custom rel mjc:target = </tn__FullBotTest2URDFSLDASM_pX0/Physics/FRKneeJoint>
+        }
+
+        def MjcActuator "BLUpperHipJoint_actuator"
+        {
+            uniform double mjc:forceRange:max = inf
+            uniform double mjc:forceRange:min = -inf
+            custom rel mjc:target = </tn__FullBotTest2URDFSLDASM_pX0/Physics/BLUpperHipJoint>
+        }
+
+        def MjcActuator "BLLowerHipJoint_actuator"
+        {
+            uniform double mjc:forceRange:max = inf
+            uniform double mjc:forceRange:min = -inf
+            custom rel mjc:target = </tn__FullBotTest2URDFSLDASM_pX0/Physics/BLLowerHipJoint>
+        }
+
+        def MjcActuator "BLKneeJoint_actuator"
+        {
+            uniform double mjc:forceRange:max = inf
+            uniform double mjc:forceRange:min = -inf
+            custom rel mjc:target = </tn__FullBotTest2URDFSLDASM_pX0/Physics/BLKneeJoint>
+        }
+
+        def MjcActuator "BRUpperHipJoint_actuator"
+        {
+            uniform double mjc:forceRange:max = inf
+            uniform double mjc:forceRange:min = -inf
+            custom rel mjc:target = </tn__FullBotTest2URDFSLDASM_pX0/Physics/BRUpperHipJoint>
+        }
+
+        def MjcActuator "BRLowerHipJoint_actuator"
+        {
+            uniform double mjc:forceRange:max = inf
+            uniform double mjc:forceRange:min = -inf
+            custom rel mjc:target = </tn__FullBotTest2URDFSLDASM_pX0/Physics/BRLowerHipJoint>
+        }
+
+        def MjcActuator "BRKneeJoint_actuator"
+        {
+            uniform double mjc:forceRange:max = inf
+            uniform double mjc:forceRange:min = -inf
+            custom rel mjc:target = </tn__FullBotTest2URDFSLDASM_pX0/Physics/BRKneeJoint>
+        }
+
+        over "FLUpperHipJoint" (
+            delete apiSchemas = ["PhysicsDriveAPI:angular", "PhysicsJointStateAPI:angular"]
+        )
+        {
+        }
+
+        over "FRUpperHipJoint" (
+            delete apiSchemas = ["PhysicsDriveAPI:angular", "PhysicsJointStateAPI:angular"]
+        )
+        {
+        }
+
+        over "BLUpperHipJoint" (
+            delete apiSchemas = ["PhysicsDriveAPI:angular", "PhysicsJointStateAPI:angular"]
+        )
+        {
+        }
+
+        over "BRUpperHipJoint" (
+            delete apiSchemas = ["PhysicsDriveAPI:angular", "PhysicsJointStateAPI:angular"]
+        )
+        {
+        }
+
+        over "root_joint"
+        {
+        }
+
+        over "FLLowerHipJoint" (
+            delete apiSchemas = ["PhysicsDriveAPI:angular", "PhysicsJointStateAPI:angular"]
+        )
+        {
+        }
+
+        over "FRLowerHipJoint" (
+            delete apiSchemas = ["PhysicsDriveAPI:angular", "PhysicsJointStateAPI:angular"]
+        )
+        {
+        }
+
+        over "BLLowerHipJoint" (
+            delete apiSchemas = ["PhysicsDriveAPI:angular", "PhysicsJointStateAPI:angular"]
+        )
+        {
+        }
+
+        over "BRLowerHipJoint" (
+            delete apiSchemas = ["PhysicsDriveAPI:angular", "PhysicsJointStateAPI:angular"]
+        )
+        {
+        }
+
+        over "FLKneeJoint" (
+            delete apiSchemas = ["PhysicsDriveAPI:angular", "PhysicsJointStateAPI:angular"]
+        )
+        {
+        }
+
+        over "FRKneeJoint" (
+            delete apiSchemas = ["PhysicsDriveAPI:angular", "PhysicsJointStateAPI:angular"]
+        )
+        {
+        }
+
+        over "BLKneeJoint" (
+            delete apiSchemas = ["PhysicsDriveAPI:angular", "PhysicsJointStateAPI:angular"]
+        )
+        {
+        }
+
+        over "BRKneeJoint" (
+            delete apiSchemas = ["PhysicsDriveAPI:angular", "PhysicsJointStateAPI:angular"]
+        )
+        {
+        }
+    }
+
+    over "Geometry"
+    {
+        over "BaseLink"
+        {
+            over "FLUpperHipLink"
+            {
+                over "FLLowerHipLink"
+                {
+                    over "FLKneeLink"
+                    {
+                        over "FLKneeLink"
+                        {
+                        }
+
+                        over "FLKneeLink_1"
+                        {
+                        }
+                    }
+
+                    over "FLLowerHipLink"
+                    {
+                    }
+
+                    over "FLLowerHipLink_1"
+                    {
+                    }
+                }
+
+                over "FLUpperHipLink"
+                {
+                }
+
+                over "FLUpperHipLink_1"
+                {
+                }
+            }
+
+            over "FRUpperHipLink"
+            {
+                over "FRLowerHipLink"
+                {
+                    over "FRKneeLink"
+                    {
+                        over "FRKneeLink"
+                        {
+                        }
+
+                        over "FRKneeLink_1"
+                        {
+                        }
+                    }
+
+                    over "FRLowerHipLink"
+                    {
+                    }
+
+                    over "FRLowerHipLink_1"
+                    {
+                    }
+                }
+
+                over "FRUpperHipLink"
+                {
+                }
+
+                over "FRUpperHipLink_1"
+                {
+                }
+            }
+
+            over "BLUpperHipLink"
+            {
+                over "BLLowerHipLink"
+                {
+                    over "BLKneeLink"
+                    {
+                        over "BLKneeLink"
+                        {
+                        }
+
+                        over "BLKneeLink_1"
+                        {
+                        }
+                    }
+
+                    over "BLLowerHipLink"
+                    {
+                    }
+
+                    over "BLLowerHipLink_1"
+                    {
+                    }
+                }
+
+                over "BLUpperHipLink"
+                {
+                }
+
+                over "BLUpperHipLink_1"
+                {
+                }
+            }
+
+            over "BRUpperHipLink"
+            {
+                over "BRLowerHipLink"
+                {
+                    over "BRKneeLink"
+                    {
+                        over "BRKneeLink"
+                        {
+                        }
+
+                        over "BRKneeLink_1"
+                        {
+                        }
+                    }
+
+                    over "BRLowerHipLink"
+                    {
+                    }
+
+                    over "BRLowerHipLink_1"
+                    {
+                    }
+                }
+
+                over "BRUpperHipLink"
+                {
+                }
+
+                over "BRUpperHipLink_1"
+                {
+                }
+            }
+
+            over "BaseLink"
+            {
+            }
+
+            over "BaseLink_1"
+            {
+            }
+        }
+    }
+
+    over "Materials"
+    {
+    }
+
+    over "VisualMaterials"
+    {
+    }
+}
+
+over "Render"
+{
+    over "OmniverseKit"
+    {
+        over "HydraTextures"
+        {
+            over "omni_kit_widget_viewport_ViewportTexture_0"
+            {
+            }
+        }
+    }
+
+    over "OmniverseGlobalRenderSettings"
+    {
+    }
+
+    over "Vars"
+    {
+        over "LdrColor"
+        {
+        }
+    }
+}
+
+over "PhysicsScene"
+{
+}
+

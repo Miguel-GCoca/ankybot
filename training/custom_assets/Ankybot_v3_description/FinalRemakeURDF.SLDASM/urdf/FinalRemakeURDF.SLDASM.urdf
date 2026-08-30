@@ -1,0 +1,743 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="FinalRemakeURDF.SLDASM">
+  <link
+    name="Base_Link">
+    <inertial>
+      <origin
+        xyz="0.020672 0.0001775 -0.00016057"
+        rpy="0 0 0" />
+      <mass
+        value="1.8396" />
+      <inertia
+        ixx="0.0016537"
+        ixy="-1.2805E-06"
+        ixz="3.4583E-05"
+        iyy="0.0026637"
+        iyz="-2.9915E-06"
+        izz="0.0037454" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://FinalRemakeURDF.SLDASM/meshes/Base_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.188235 0.666667 0.827451 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://FinalRemakeURDF.SLDASM/meshes/Base_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="FR_Hip_Link">
+    <inertial>
+      <origin
+        xyz="2.8582E-05 0.0050339 -0.037076"
+        rpy="0 0 0" />
+      <mass
+        value="0.11621" />
+      <inertia
+        ixx="2.2792E-05"
+        ixy="2.5738E-07"
+        ixz="7.4847E-08"
+        iyy="3.7134E-05"
+        iyz="-9.1967E-08"
+        izz="2.723E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://FinalRemakeURDF.SLDASM/meshes/FR_Hip_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.658824 0.474510 0.788235 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://FinalRemakeURDF.SLDASM/meshes/FR_Hip_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="FR_Hip_Joint"
+    type="revolute">
+    <origin
+      xyz="0.12775 -0.1018 -0.040652"
+      rpy="0 0 0" />
+    <parent
+      link="Base_Link" />
+    <child
+      link="FR_Hip_Link" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      lower="-1.57079632679"
+      upper="1.57079632679"
+      effort="3.92266"
+      velocity="10.4719755" />
+  </joint>
+  <link
+    name="FR_Thigh_Link">
+    <inertial>
+      <origin
+        xyz="-5.0003E-08 -0.0061714 -0.035007"
+        rpy="0 0 0" />
+      <mass
+        value="0.062712" />
+      <inertia
+        ixx="4.2875E-05"
+        ixy="-5.4726E-12"
+        ixz="9.5949E-09"
+        iyy="4.7968E-05"
+        iyz="-1.2875E-10"
+        izz="6.0779E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://FinalRemakeURDF.SLDASM/meshes/FR_Thigh_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.258824 0.705882 0.564706 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://FinalRemakeURDF.SLDASM/meshes/FR_Thigh_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="FR_Thigh_Joint"
+    type="revolute">
+    <origin
+      xyz="-0.010143 0.0050417 -0.045931"
+      rpy="0 0 0" />
+    <parent
+      link="FR_Hip_Link" />
+    <child
+      link="FR_Thigh_Link" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-1.57079632679"
+      upper="1.57079632679"
+      effort="3.92266"
+      velocity="10.4719755" />
+  </joint>
+  <link
+    name="FR_Foot_Link">
+    <inertial>
+      <origin
+        xyz="0.042285 0.0053727 -0.0014211"
+        rpy="0 0 0" />
+      <mass
+        value="0.15776" />
+      <inertia
+        ixx="2.8299E-05"
+        ixy="1.7543E-06"
+        ixz="6.7181E-06"
+        iyy="0.00013787"
+        iyz="-7.0463E-08"
+        izz="0.00012969" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://FinalRemakeURDF.SLDASM/meshes/FR_Foot_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.874510 0.674510 0.184314 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://FinalRemakeURDF.SLDASM/meshes/FR_Foot_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="FR_Foot_Joint"
+    type="revolute">
+    <origin
+      xyz="0 0 -0.07"
+      rpy="0 0 0" />
+    <parent
+      link="FR_Thigh_Link" />
+    <child
+      link="FR_Foot_Link" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-1.57079632679"
+      upper="1.57079632679"
+      effort="3.92266"
+      velocity="10.4719755" />
+  </joint>
+  <link
+    name="FL_Hip_Link">
+    <inertial>
+      <origin
+        xyz="0.00022325 -0.0050353 -0.037386"
+        rpy="0 0 0" />
+      <mass
+        value="0.11621" />
+      <inertia
+        ixx="2.2791E-05"
+        ixy="-2.5729E-07"
+        ixz="5.9205E-08"
+        iyy="3.7134E-05"
+        iyz="9.5564E-08"
+        izz="2.7231E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://FinalRemakeURDF.SLDASM/meshes/FL_Hip_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.658824 0.474510 0.788235 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://FinalRemakeURDF.SLDASM/meshes/FL_Hip_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="FL_Hip_Joint"
+    type="revolute">
+    <origin
+      xyz="0.12775 0.1018 -0.040652"
+      rpy="0 0 0" />
+    <parent
+      link="Base_Link" />
+    <child
+      link="FL_Hip_Link" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      lower="-1.57079632679"
+      upper="1.57079632679"
+      effort="3.92266"
+      velocity="10.4719755" />
+  </joint>
+  <link
+    name="FL_Thigh_Link">
+    <inertial>
+      <origin
+        xyz="5.0034E-08 0.0061714 -0.035007"
+        rpy="0 0 0" />
+      <mass
+        value="0.062712" />
+      <inertia
+        ixx="4.2875E-05"
+        ixy="-5.4696E-12"
+        ixz="-9.5949E-09"
+        iyy="4.7968E-05"
+        iyz="1.2875E-10"
+        izz="6.0779E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://FinalRemakeURDF.SLDASM/meshes/FL_Thigh_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.258824 0.705882 0.564706 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://FinalRemakeURDF.SLDASM/meshes/FL_Thigh_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="FL_Thigh_Joint"
+    type="revolute">
+    <origin
+      xyz="-0.00985 -0.0050417 -0.046234"
+      rpy="0 0 0" />
+    <parent
+      link="FL_Hip_Link" />
+    <child
+      link="FL_Thigh_Link" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-1.57079632679"
+      upper="1.57079632679"
+      effort="3.92266"
+      velocity="10.4719755" />
+  </joint>
+  <link
+    name="FL_Foot_Link">
+    <inertial>
+      <origin
+        xyz="0.042285 -0.0062428 -0.0014211"
+        rpy="0 0 0" />
+      <mass
+        value="0.15776" />
+      <inertia
+        ixx="2.8299E-05"
+        ixy="-1.7544E-06"
+        ixz="6.718E-06"
+        iyy="0.00013787"
+        iyz="7.0446E-08"
+        izz="0.00012969" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://FinalRemakeURDF.SLDASM/meshes/FL_Foot_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.874510 0.674510 0.184314 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://FinalRemakeURDF.SLDASM/meshes/FL_Foot_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="FL_Foot_Joint"
+    type="revolute">
+    <origin
+      xyz="0 0 -0.07"
+      rpy="0 0 0" />
+    <parent
+      link="FL_Thigh_Link" />
+    <child
+      link="FL_Foot_Link" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-1.57079632679"
+      upper="1.57079632679"
+      effort="3.92266"
+      velocity="10.4719755" />
+  </joint>
+  <link
+    name="BR_Hip_Link">
+    <inertial>
+      <origin
+        xyz="0.0012423 0.0050353 -0.036602"
+        rpy="0 0 0" />
+      <mass
+        value="0.11621" />
+      <inertia
+        ixx="2.2796E-05"
+        ixy="-2.5574E-07"
+        ixz="-2.0133E-07"
+        iyy="3.7134E-05"
+        iyz="-9.9698E-08"
+        izz="2.7226E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://FinalRemakeURDF.SLDASM/meshes/BR_Hip_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.658824 0.474510 0.788235 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://FinalRemakeURDF.SLDASM/meshes/BR_Hip_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="BR_Hip_Joint"
+    type="revolute">
+    <origin
+      xyz="-0.12875 -0.1018 -0.040742"
+      rpy="0 0 0" />
+    <parent
+      link="Base_Link" />
+    <child
+      link="BR_Hip_Link" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      lower="-1.57079632679"
+      upper="1.57079632679"
+      effort="3.92266"
+      velocity="10.4719755" />
+  </joint>
+  <link
+    name="BR_Thigh_Link">
+    <inertial>
+      <origin
+        xyz="2.9465E-06 -0.0061714 -0.035007"
+        rpy="0 0 0" />
+      <mass
+        value="0.062712" />
+      <inertia
+        ixx="4.2875E-05"
+        ixy="-5.4616E-12"
+        ixz="1.2745E-08"
+        iyy="4.7968E-05"
+        iyz="-1.2875E-10"
+        izz="6.0779E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://FinalRemakeURDF.SLDASM/meshes/BR_Thigh_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.258824 0.705882 0.564706 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://FinalRemakeURDF.SLDASM/meshes/BR_Thigh_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="BR_Thigh_Joint"
+    type="revolute">
+    <origin
+      xyz="0.011497 0.0050417 -0.045293"
+      rpy="0 0 0" />
+    <parent
+      link="BR_Hip_Link" />
+    <child
+      link="BR_Thigh_Link" />
+    <axis
+      xyz="0 -1 0" />
+    <limit
+      lower="-1.57079632679"
+      upper="1.57079632679"
+      effort="3.92266"
+      velocity="10.4719755" />
+  </joint>
+  <link
+    name="BR_Foot_Link">
+    <inertial>
+      <origin
+        xyz="-0.042285 0.0062428 -0.0014211"
+        rpy="0 0 0" />
+      <mass
+        value="0.15776" />
+      <inertia
+        ixx="2.8299E-05"
+        ixy="-1.7544E-06"
+        ixz="-6.718E-06"
+        iyy="0.00013787"
+        iyz="-7.0446E-08"
+        izz="0.00012969" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://FinalRemakeURDF.SLDASM/meshes/BR_Foot_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.874510 0.674510 0.184314 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://FinalRemakeURDF.SLDASM/meshes/BR_Foot_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="BR_Foot_Joint"
+    type="revolute">
+    <origin
+      xyz="0 0 -0.07"
+      rpy="0 0 0" />
+    <parent
+      link="BR_Thigh_Link" />
+    <child
+      link="BR_Foot_Link" />
+    <axis
+      xyz="0 -1 0" />
+    <limit
+      lower="-1.57079632679"
+      upper="1.57079632679"
+      effort="3.92266"
+      velocity="10.4719755" />
+  </joint>
+  <link
+    name="BL_Hip_Link">
+    <inertial>
+      <origin
+        xyz="-2.8582E-05 -0.0050339 -0.037166"
+        rpy="0 0 0" />
+      <mass
+        value="0.11621" />
+      <inertia
+        ixx="2.2792E-05"
+        ixy="2.5738E-07"
+        ixz="-7.4847E-08"
+        iyy="3.7134E-05"
+        iyz="9.1967E-08"
+        izz="2.723E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://FinalRemakeURDF.SLDASM/meshes/BL_Hip_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.658824 0.474510 0.788235 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://FinalRemakeURDF.SLDASM/meshes/BL_Hip_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="BL_Hip_Joint"
+    type="revolute">
+    <origin
+      xyz="-0.12875 0.1018 -0.040652"
+      rpy="0 0 0" />
+    <parent
+      link="Base_Link" />
+    <child
+      link="BL_Hip_Link" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      lower="-1.57079632679"
+      upper="1.57079632679"
+      effort="3.92266"
+      velocity="10.4719755" />
+  </joint>
+  <link
+    name="BL_Thigh_Link">
+    <inertial>
+      <origin
+        xyz="5.0034E-08 0.0053296 -0.035007"
+        rpy="0 0 0" />
+      <mass
+        value="0.062712" />
+      <inertia
+        ixx="4.2875E-05"
+        ixy="-5.4696E-12"
+        ixz="-9.5949E-09"
+        iyy="4.7968E-05"
+        iyz="1.2875E-10"
+        izz="6.0779E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://FinalRemakeURDF.SLDASM/meshes/BL_Thigh_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.258824 0.705882 0.564706 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://FinalRemakeURDF.SLDASM/meshes/BL_Thigh_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="BL_Thigh_Joint"
+    type="revolute">
+    <origin
+      xyz="0.010143 -0.0042 -0.046021"
+      rpy="0 0 0" />
+    <parent
+      link="BL_Hip_Link" />
+    <child
+      link="BL_Thigh_Link" />
+    <axis
+      xyz="0 -1 0" />
+    <limit
+      lower="-1.57079632679"
+      upper="1.57079632679"
+      effort="3.92266"
+      velocity="10.4719755" />
+  </joint>
+  <link
+    name="BL_Foot_Link">
+    <inertial>
+      <origin
+        xyz="-0.042266 -0.0054259 -0.0013891"
+        rpy="0 0 0" />
+      <mass
+        value="0.15776" />
+      <inertia
+        ixx="2.8299E-05"
+        ixy="1.7543E-06"
+        ixz="-6.7181E-06"
+        iyy="0.00013787"
+        iyz="7.0463E-08"
+        izz="0.00012969" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://FinalRemakeURDF.SLDASM/meshes/BL_Foot_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.874510 0.674510 0.184314 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://FinalRemakeURDF.SLDASM/meshes/BL_Foot_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="BL_Foot_Joint"
+    type="revolute">
+    <origin
+      xyz="0 0 -0.07"
+      rpy="0 0 0" />
+    <parent
+      link="BL_Thigh_Link" />
+    <child
+      link="BL_Foot_Link" />
+    <axis
+      xyz="0 -1 0" />
+    <limit
+      lower="-1.57079632679"
+      upper="1.57079632679"
+      effort="3.92266"
+      velocity="10.4719755" />
+  </joint>
+</robot>

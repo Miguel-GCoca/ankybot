@@ -1,0 +1,450 @@
+#usda 1.0
+(
+    customLayerData = {
+        string creator = "URDF USD Converter v0.1.0"
+    }
+    defaultPrim = "tn__FullBotTest2URDFSLDASM_pX0"
+    doc = """Generated from Composed Stage of root layer /tmp/tmp_zm0yi2o/FullBotTest2URDF.SLDASM.usdc
+
+
+Generated from Composed Stage of root layer /workspace/custom_assets/Ankybot_v1_description/FullBotTest2URDF.SLDASM/urdf/usdex/FullBotTest2URDF.SLDASM.usdc
+
+
+Generated from Composed Stage of root layer /workspace/custom_assets/Ankybot_v1_description/FullBotTest2URDF.SLDASM/urdf/temp/FullBotTest2URDF.usd
+
+
+Generated from Composed Stage of root layer /workspace/custom_assets/Ankybot_v1_description/FullBotTest2URDF.SLDASM/urdf/FullBotTest2URDF/payloads/base.usd
+"""
+    kilogramsPerUnit = 1
+    metersPerUnit = 1
+    subLayers = [
+        @./robot.usda@
+    ]
+    upAxis = "Z"
+)
+
+def Xform "tn__FullBotTest2URDFSLDASM_pX0" (
+    prepend apiSchemas = ["GeomModelAPI"]
+    assetInfo = {
+        string name = "FullBotTest2URDF.SLDASM"
+    }
+    displayName = "FullBotTest2URDF.SLDASM"
+    kind = "component"
+)
+{
+    float3[] extentsHint = [(-0.22014733, -0.18942495, -0.24013965), (0.22026554, 0.18955716, 0.027592525), (3.4028235e38, 3.4028235e38, 3.4028235e38), (-3.4028235e38, -3.4028235e38, -3.4028235e38), (3.4028235e38, 3.4028235e38, 3.4028235e38), (-3.4028235e38, -3.4028235e38, -3.4028235e38), (-0.22014733, -0.18942495, -0.24013965), (0.22026554, 0.18955716, 0.027592525)]
+
+    def Scope "Materials"
+    {
+    }
+
+    def Scope "Geometry"
+    {
+        def Xform "BaseLink"
+        {
+            def Xform "BaseLink" (
+                instanceable = true
+                prepend references = @./instances.usda@</Instances/BaseLink_1>
+            )
+            {
+                quatd xformOp:orient = (1, 0, 0, 0)
+                double3 xformOp:scale = (1, 1, 1)
+                double3 xformOp:translate = (0, 0, 0)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+            }
+
+            def Xform "FLUpperHipLink"
+            {
+                quatf xformOp:orient = (1, 0, 0, 0)
+                float3 xformOp:scale = (1, 1, 1)
+                double3 xformOp:translate = (0.166448515594364, 0.150445534569728, -0.0104353066084669)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+                def Xform "FLUpperHipLink" (
+                    instanceable = true
+                    prepend references = @./instances.usda@</Instances/FLUpperHipLink_1>
+                )
+                {
+                    quatd xformOp:orient = (1, 0, 0, 0)
+                    double3 xformOp:scale = (1, 1, 1)
+                    double3 xformOp:translate = (0, 0, 0)
+                    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                }
+
+                def Xform "FLLowerHipLink"
+                {
+                    quatf xformOp:orient = (1, 0, 0, 0)
+                    float3 xformOp:scale = (1, 1, 1)
+                    double3 xformOp:translate = (-0.00986137017177624, 0.004106043362055, -0.047323311631616)
+                    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+                    def Xform "FLLowerHipLink" (
+                        instanceable = true
+                        prepend references = @./instances.usda@</Instances/FLLowerHipLink_1>
+                    )
+                    {
+                        quatd xformOp:orient = (1, 0, 0, 0)
+                        double3 xformOp:scale = (1, 1, 1)
+                        double3 xformOp:translate = (0, 0, 0)
+                        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                    }
+
+                    def Xform "FLKneeLink"
+                    {
+                        quatf xformOp:orient = (1, 0, 0, 0)
+                        float3 xformOp:scale = (1, 1, 1)
+                        double3 xformOp:translate = (-0.0305542637867021, -0.0000488994104665963, -0.0516375306661767)
+                        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+                        def Xform "FLKneeLink" (
+                            instanceable = true
+                            prepend references = @./instances.usda@</Instances/FLKneeLink_1>
+                        )
+                        {
+                            quatd xformOp:orient = (1, 0, 0, 0)
+                            double3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:translate = (0, 0, 0)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                        }
+
+                        def Xform "FLKneeLink_1" (
+                            displayName = "FLKneeLink"
+                            instanceable = true
+                            prepend references = @./instances.usda@</Instances/FLKneeLink_1_1>
+                        )
+                        {
+                            quatd xformOp:orient = (1, 0, 0, 0)
+                            double3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:translate = (0, 0, 0)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                        }
+                    }
+
+                    def Xform "FLLowerHipLink_1" (
+                        displayName = "FLLowerHipLink"
+                        instanceable = true
+                        prepend references = @./instances.usda@</Instances/FLLowerHipLink_1_1>
+                    )
+                    {
+                        quatd xformOp:orient = (1, 0, 0, 0)
+                        double3 xformOp:scale = (1, 1, 1)
+                        double3 xformOp:translate = (0, 0, 0)
+                        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                    }
+                }
+
+                def Xform "FLUpperHipLink_1" (
+                    displayName = "FLUpperHipLink"
+                    instanceable = true
+                    prepend references = @./instances.usda@</Instances/FLUpperHipLink_1_1>
+                )
+                {
+                    quatd xformOp:orient = (1, 0, 0, 0)
+                    double3 xformOp:scale = (1, 1, 1)
+                    double3 xformOp:translate = (0, 0, 0)
+                    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                }
+            }
+
+            def Xform "FRUpperHipLink"
+            {
+                quatf xformOp:orient = (1, 0, 0, 0)
+                float3 xformOp:scale = (1, 1, 1)
+                double3 xformOp:translate = (0.16595413806251, -0.150454465430272, -0.0108280445176236)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+                def Xform "FRUpperHipLink" (
+                    instanceable = true
+                    prepend references = @./instances.usda@</Instances/FRUpperHipLink_1>
+                )
+                {
+                    quatd xformOp:orient = (1, 0, 0, 0)
+                    double3 xformOp:scale = (1, 1, 1)
+                    double3 xformOp:translate = (0, 0, 0)
+                    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                }
+
+                def Xform "FRLowerHipLink"
+                {
+                    quatf xformOp:orient = (1, 0, 0, 0)
+                    float3 xformOp:scale = (1, 1, 1)
+                    double3 xformOp:translate = (0.0109300395602728, -0.00419550822049697, -0.0465833751657271)
+                    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+                    def Xform "FRLowerHipLink" (
+                        instanceable = true
+                        prepend references = @./instances.usda@</Instances/FRLowerHipLink_1>
+                    )
+                    {
+                        quatd xformOp:orient = (1, 0, 0, 0)
+                        double3 xformOp:scale = (1, 1, 1)
+                        double3 xformOp:translate = (0, 0, 0)
+                        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                    }
+
+                    def Xform "FRKneeLink"
+                    {
+                        quatf xformOp:orient = (1, 0, 0, 0)
+                        float3 xformOp:scale = (1, 1, 1)
+                        double3 xformOp:translate = (-0.0336140084544684, -0.0000469974368977333, -0.0497000626138108)
+                        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+                        def Xform "FRKneeLink" (
+                            instanceable = true
+                            prepend references = @./instances.usda@</Instances/FRKneeLink_1>
+                        )
+                        {
+                            quatd xformOp:orient = (1, 0, 0, 0)
+                            double3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:translate = (0, 0, 0)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                        }
+
+                        def Xform "FRKneeLink_1" (
+                            displayName = "FRKneeLink"
+                            instanceable = true
+                            prepend references = @./instances.usda@</Instances/FRKneeLink_1_1>
+                        )
+                        {
+                            quatd xformOp:orient = (1, 0, 0, 0)
+                            double3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:translate = (0, 0, 0)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                        }
+                    }
+
+                    def Xform "FRLowerHipLink_1" (
+                        displayName = "FRLowerHipLink"
+                        instanceable = true
+                        prepend references = @./instances.usda@</Instances/FRLowerHipLink_1_1>
+                    )
+                    {
+                        quatd xformOp:orient = (1, 0, 0, 0)
+                        double3 xformOp:scale = (1, 1, 1)
+                        double3 xformOp:translate = (0, 0, 0)
+                        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                    }
+                }
+
+                def Xform "FRUpperHipLink_1" (
+                    displayName = "FRUpperHipLink"
+                    instanceable = true
+                    prepend references = @./instances.usda@</Instances/FRUpperHipLink_1_1>
+                )
+                {
+                    quatd xformOp:orient = (1, 0, 0, 0)
+                    double3 xformOp:scale = (1, 1, 1)
+                    double3 xformOp:translate = (0, 0, 0)
+                    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                }
+            }
+
+            def Xform "BLUpperHipLink"
+            {
+                quatf xformOp:orient = (0.99986035, 0, -0.016711907, 0)
+                float3 xformOp:scale = (1, 1, 1)
+                double3 xformOp:translate = (-0.166002604208965, 0.150445534569728, -0.016167388356793)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+                def Xform "BLUpperHipLink" (
+                    instanceable = true
+                    prepend references = @./instances.usda@</Instances/BLUpperHipLink_1>
+                )
+                {
+                    quatd xformOp:orient = (1, 0, 0, 0)
+                    double3 xformOp:scale = (1, 1, 1)
+                    double3 xformOp:translate = (0, 0, 0)
+                    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                }
+
+                def Xform "BLLowerHipLink"
+                {
+                    quatf xformOp:orient = (1, 0, 0, 0)
+                    float3 xformOp:scale = (1, 1, 1)
+                    double3 xformOp:translate = (-0.0104346502848324, 0.00410601321117743, -0.0468402973556113)
+                    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+                    def Xform "BLLowerHipLink" (
+                        instanceable = true
+                        prepend references = @./instances.usda@</Instances/BLLowerHipLink_1>
+                    )
+                    {
+                        quatd xformOp:orient = (1, 0, 0, 0)
+                        double3 xformOp:scale = (1, 1, 1)
+                        double3 xformOp:translate = (0, 0, 0)
+                        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                    }
+
+                    def Xform "BLKneeLink"
+                    {
+                        quatf xformOp:orient = (1, 0, 0, 0)
+                        float3 xformOp:scale = (1, 1, 1)
+                        double3 xformOp:translate = (0.0181858082501283, -0.0000543902489529291, -0.0571717488700233)
+                        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+                        def Xform "BLKneeLink" (
+                            instanceable = true
+                            prepend references = @./instances.usda@</Instances/BLKneeLink_1>
+                        )
+                        {
+                            quatd xformOp:orient = (1, 0, 0, 0)
+                            double3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:translate = (0, 0, 0)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                        }
+
+                        def Xform "BLKneeLink_1" (
+                            displayName = "BLKneeLink"
+                            instanceable = true
+                            prepend references = @./instances.usda@</Instances/BLKneeLink_1_1>
+                        )
+                        {
+                            quatd xformOp:orient = (1, 0, 0, 0)
+                            double3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:translate = (0, 0, 0)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                        }
+                    }
+
+                    def Xform "BLLowerHipLink_1" (
+                        displayName = "BLLowerHipLink"
+                        instanceable = true
+                        prepend references = @./instances.usda@</Instances/BLLowerHipLink_1_1>
+                    )
+                    {
+                        quatd xformOp:orient = (1, 0, 0, 0)
+                        double3 xformOp:scale = (1, 1, 1)
+                        double3 xformOp:translate = (0, 0, 0)
+                        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                    }
+                }
+
+                def Xform "BLUpperHipLink_1" (
+                    displayName = "BLUpperHipLink"
+                    instanceable = true
+                    prepend references = @./instances.usda@</Instances/BLUpperHipLink_1_1>
+                )
+                {
+                    quatd xformOp:orient = (1, 0, 0, 0)
+                    double3 xformOp:scale = (1, 1, 1)
+                    double3 xformOp:translate = (0, 0, 0)
+                    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                }
+            }
+
+            def Xform "BRUpperHipLink"
+            {
+                quatf xformOp:orient = (0.99986035, 0, -0.016711907, 0)
+                float3 xformOp:scale = (1, 1, 1)
+                double3 xformOp:translate = (-0.165497893612396, -0.150954465430273, -0.01646814190852)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+                def Xform "BRUpperHipLink" (
+                    instanceable = true
+                    prepend references = @./instances.usda@</Instances/BRUpperHipLink_1>
+                )
+                {
+                    quatd xformOp:orient = (1, 0, 0, 0)
+                    double3 xformOp:scale = (1, 1, 1)
+                    double3 xformOp:translate = (0, 0, 0)
+                    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                }
+
+                def Xform "BRLowerHipLink"
+                {
+                    quatf xformOp:orient = (1, 0, 0, 0)
+                    float3 xformOp:scale = (1, 1, 1)
+                    double3 xformOp:translate = (0.00936699263991836, -0.00410604336205855, -0.0469305737224566)
+                    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+                    def Xform "BRLowerHipLink" (
+                        instanceable = true
+                        prepend references = @./instances.usda@</Instances/BRLowerHipLink_1>
+                    )
+                    {
+                        quatd xformOp:orient = (1, 0, 0, 0)
+                        double3 xformOp:scale = (1, 1, 1)
+                        double3 xformOp:translate = (0, 0, 0)
+                        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                    }
+
+                    def Xform "BRKneeLink"
+                    {
+                        quatf xformOp:orient = (1, 0, 0, 0)
+                        float3 xformOp:scale = (1, 1, 1)
+                        double3 xformOp:translate = (0.0305542637867015, 0.0000488994104668183, -0.0516375306661785)
+                        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+                        def Xform "BRKneeLink" (
+                            instanceable = true
+                            prepend references = @./instances.usda@</Instances/BRKneeLink_1>
+                        )
+                        {
+                            quatd xformOp:orient = (1, 0, 0, 0)
+                            double3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:translate = (0, 0, 0)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                        }
+
+                        def Xform "BRKneeLink_1" (
+                            displayName = "BRKneeLink"
+                            instanceable = true
+                            prepend references = @./instances.usda@</Instances/BRKneeLink_1_1>
+                        )
+                        {
+                            quatd xformOp:orient = (1, 0, 0, 0)
+                            double3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:translate = (0, 0, 0)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                        }
+                    }
+
+                    def Xform "BRLowerHipLink_1" (
+                        displayName = "BRLowerHipLink"
+                        instanceable = true
+                        prepend references = @./instances.usda@</Instances/BRLowerHipLink_1_1>
+                    )
+                    {
+                        quatd xformOp:orient = (1, 0, 0, 0)
+                        double3 xformOp:scale = (1, 1, 1)
+                        double3 xformOp:translate = (0, 0, 0)
+                        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                    }
+                }
+
+                def Xform "BRUpperHipLink_1" (
+                    displayName = "BRUpperHipLink"
+                    instanceable = true
+                    prepend references = @./instances.usda@</Instances/BRUpperHipLink_1_1>
+                )
+                {
+                    quatd xformOp:orient = (1, 0, 0, 0)
+                    double3 xformOp:scale = (1, 1, 1)
+                    double3 xformOp:translate = (0, 0, 0)
+                    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                }
+            }
+
+            def Xform "BaseLink_1" (
+                displayName = "BaseLink"
+                instanceable = true
+                prepend references = @./instances.usda@</Instances/BaseLink_1_1>
+            )
+            {
+                quatd xformOp:orient = (1, 0, 0, 0)
+                double3 xformOp:scale = (1, 1, 1)
+                double3 xformOp:translate = (0, 0, 0)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+            }
+        }
+    }
+
+    def Scope "Physics"
+    {
+    }
+
+    def Scope "VisualMaterials"
+    {
+    }
+}
+

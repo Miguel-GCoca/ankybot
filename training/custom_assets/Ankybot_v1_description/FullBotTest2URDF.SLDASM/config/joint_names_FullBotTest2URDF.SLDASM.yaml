@@ -1,0 +1,1 @@
+controller_joint_names: ['', 'FLUpperJoint', 'FLLowerHipJoint', 'FLKneeJoint', 'FRUpperHipJoint', 'FRLowerHipJoint', 'FRKneeJoint', 'BLUpperHipJoint', 'BLLowerHipJoint', 'BLKneeJoint', 'BRUpperHipJoint', 'BRLowerHipJoint', 'BRKneeJoint', ]

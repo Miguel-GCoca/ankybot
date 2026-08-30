@@ -1,0 +1,743 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="FullBotTest2URDF.SLDASM">
+  <link
+    name="BaseLink">
+    <inertial>
+      <origin
+        xyz="6.5192E-05 -3.7379E-06 -0.0039004"
+        rpy="0 0 0" />
+      <mass
+        value="1.1478" />
+      <inertia
+        ixx="0.0025969"
+        ixy="7.6802E-12"
+        ixz="-7.2398E-05"
+        iyy="0.0045"
+        iyz="4.4606E-12"
+        izz="0.0069271" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://FullBotTest2URDF.SLDASM/meshes/BaseLink.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.75294 0.75294 0.75294 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://FullBotTest2URDF.SLDASM/meshes/BaseLink.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="FLUpperHipLink">
+    <inertial>
+      <origin
+        xyz="0.0031695 2.5708E-05 0.0080334"
+        rpy="0 0 0" />
+      <mass
+        value="0.080676" />
+      <inertia
+        ixx="1.9012E-05"
+        ixy="1.3316E-11"
+        ixz="3.9057E-07"
+        iyy="1.7088E-05"
+        iyz="-7.8407E-10"
+        izz="1.2575E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://FullBotTest2URDF.SLDASM/meshes/FLUpperHipLink.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.75294 0.75294 0.75294 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://FullBotTest2URDF.SLDASM/meshes/FLUpperHipLink.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="FLUpperHipJoint"
+    type="revolute">
+    <origin
+      xyz="0.166448515594364 0.150445534569728 -0.0104353066084669"
+      rpy="0 0 0" />
+    <parent
+      link="BaseLink" />
+    <child
+      link="FLUpperHipLink" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="FLLowerHipLink">
+    <inertial>
+      <origin
+        xyz="0.0031718 0.00024545 -0.0075193"
+        rpy="0 0 0" />
+      <mass
+        value="0.1282" />
+      <inertia
+        ixx="3.8463E-05"
+        ixy="2.4145E-07"
+        ixz="-9.7233E-06"
+        iyy="5.9344E-05"
+        iyz="-1.1421E-07"
+        izz="3.3436E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://FullBotTest2URDF.SLDASM/meshes/FLLowerHipLink.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.75294 0.75294 0.75294 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://FullBotTest2URDF.SLDASM/meshes/FLLowerHipLink.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="FLLowerHipJoint"
+    type="revolute">
+    <origin
+      xyz="-0.00986137017177624 0.004106043362055 -0.047323311631616"
+      rpy="0 0 0" />
+    <parent
+      link="FLUpperHipLink" />
+    <child
+      link="FLLowerHipLink" />
+    <axis
+      xyz="0 -1 0" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="FLKneeLink">
+    <inertial>
+      <origin
+        xyz="0.025035 0.0072628 -0.045279"
+        rpy="0 0 0" />
+      <mass
+        value="0.13883" />
+      <inertia
+        ixx="0.00014054"
+        ixy="9.778E-07"
+        ixz="5.6547E-05"
+        iyy="0.00017391"
+        iyz="-1.8167E-06"
+        izz="5.2732E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://FullBotTest2URDF.SLDASM/meshes/FLKneeLink.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.75294 0.75294 0.75294 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://FullBotTest2URDF.SLDASM/meshes/FLKneeLink.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="FLKneeJoint"
+    type="revolute">
+    <origin
+      xyz="-0.0305542637867021 -4.88994104665963E-05 -0.0516375306661767"
+      rpy="0 0 0" />
+    <parent
+      link="FLLowerHipLink" />
+    <child
+      link="FLKneeLink" />
+    <axis
+      xyz="0 -1 0" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="FRUpperHipLink">
+    <inertial>
+      <origin
+        xyz="0.0036639 2.5708E-05 0.0084262"
+        rpy="0 0 0" />
+      <mass
+        value="0.080676" />
+      <inertia
+        ixx="1.9012E-05"
+        ixy="1.3304E-11"
+        ixz="3.9057E-07"
+        iyy="1.7088E-05"
+        iyz="-7.8406E-10"
+        izz="1.2575E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://FullBotTest2URDF.SLDASM/meshes/FRUpperHipLink.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.75294 0.75294 0.75294 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://FullBotTest2URDF.SLDASM/meshes/FRUpperHipLink.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="FRUpperHipJoint"
+    type="revolute">
+    <origin
+      xyz="0.16595413806251 -0.150454465430272 -0.0108280445176236"
+      rpy="0 0 0" />
+    <parent
+      link="BaseLink" />
+    <child
+      link="FRUpperHipLink" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="FRLowerHipLink">
+    <inertial>
+      <origin
+        xyz="-0.014129 -0.00025961 -0.0074696"
+        rpy="0 0 0" />
+      <mass
+        value="0.1282" />
+      <inertia
+        ixx="3.7263E-05"
+        ixy="2.3773E-07"
+        ixz="-1.0364E-05"
+        iyy="5.9344E-05"
+        iyz="7.4443E-08"
+        izz="3.4636E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://FullBotTest2URDF.SLDASM/meshes/FRLowerHipLink.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.75294 0.75294 0.75294 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://FullBotTest2URDF.SLDASM/meshes/FRLowerHipLink.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="FRLowerHipJoint"
+    type="revolute">
+    <origin
+      xyz="0.0109300395602728 -0.00419550822049697 -0.0465833751657271"
+      rpy="0 0 0" />
+    <parent
+      link="FRUpperHipLink" />
+    <child
+      link="FRLowerHipLink" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="FRKneeLink">
+    <inertial>
+      <origin
+        xyz="0.028221 0.0072646 -0.043365"
+        rpy="0 0 0" />
+      <mass
+        value="0.13883" />
+      <inertia
+        ixx="0.00013198"
+        ixy="1.1031E-06"
+        ixz="6.2252E-05"
+        iyy="0.00017391"
+        iyz="-1.7379E-06"
+        izz="6.1284E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://FullBotTest2URDF.SLDASM/meshes/FRKneeLink.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.75294 0.75294 0.75294 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://FullBotTest2URDF.SLDASM/meshes/FRKneeLink.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="FRKneeJoint"
+    type="revolute">
+    <origin
+      xyz="-0.0336140084544684 -4.69974368977333E-05 -0.0497000626138108"
+      rpy="0 0 0" />
+    <parent
+      link="FRLowerHipLink" />
+    <child
+      link="FRKneeLink" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="BLUpperHipLink">
+    <inertial>
+      <origin
+        xyz="-0.0031695 0.00047429 0.0081087"
+        rpy="0 0 0" />
+      <mass
+        value="0.080676" />
+      <inertia
+        ixx="1.9012E-05"
+        ixy="1.3304E-11"
+        ixz="-3.9057E-07"
+        iyy="1.7088E-05"
+        iyz="7.8406E-10"
+        izz="1.2575E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://FullBotTest2URDF.SLDASM/meshes/BLUpperHipLink.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.75294 0.75294 0.75294 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://FullBotTest2URDF.SLDASM/meshes/BLUpperHipLink.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="BLUpperHipJoint"
+    type="revolute">
+    <origin
+      xyz="-0.166002604208965 0.150445534569728 -0.016167388356793"
+      rpy="0 -0.0334260590095889 0" />
+    <parent
+      link="BaseLink" />
+    <child
+      link="BLUpperHipLink" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="BLLowerHipLink">
+    <inertial>
+      <origin
+        xyz="0.012719 0.00084989 -0.0083278"
+        rpy="0 0 0" />
+      <mass
+        value="0.1282" />
+      <inertia
+        ixx="4.0252E-05"
+        ixy="2.3939E-07"
+        ixz="8.572E-06"
+        iyy="5.9344E-05"
+        iyz="-7.1555E-08"
+        izz="3.1647E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://FullBotTest2URDF.SLDASM/meshes/BLLowerHipLink.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.75294 0.75294 0.75294 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://FullBotTest2URDF.SLDASM/meshes/BLLowerHipLink.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="BLLowerHipJoint"
+    type="revolute">
+    <origin
+      xyz="-0.0104346502848324 0.00410601321117743 -0.0468402973556113"
+      rpy="0 0 0" />
+    <parent
+      link="BLUpperHipLink" />
+    <child
+      link="BLLowerHipLink" />
+    <axis
+      xyz="0 -1 0" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="BLKneeLink">
+    <inertial>
+      <origin
+        xyz="-0.018931 -0.0065678 -0.041961"
+        rpy="0 0 0" />
+      <mass
+        value="0.13883" />
+      <inertia
+        ixx="0.00013786"
+        ixy="1.019E-06"
+        ixz="-5.8528E-05"
+        iyy="0.00017391"
+        iyz="1.7922E-06"
+        izz="5.541E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://FullBotTest2URDF.SLDASM/meshes/BLKneeLink.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.75294 0.75294 0.75294 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://FullBotTest2URDF.SLDASM/meshes/BLKneeLink.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="BLKneeJoint"
+    type="revolute">
+    <origin
+      xyz="0.0181858082501283 -5.43902489529291E-05 -0.0571717488700233"
+      rpy="0 0 0" />
+    <parent
+      link="BLLowerHipLink" />
+    <child
+      link="BLKneeLink" />
+    <axis
+      xyz="0 -1 0" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="BRUpperHipLink">
+    <inertial>
+      <origin
+        xyz="-0.0036639 -2.5708E-05 0.0084262"
+        rpy="0 0 0" />
+      <mass
+        value="0.080676" />
+      <inertia
+        ixx="1.9012E-05"
+        ixy="1.3304E-11"
+        ixz="-3.9057E-07"
+        iyy="1.7088E-05"
+        iyz="7.8406E-10"
+        izz="1.2575E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://FullBotTest2URDF.SLDASM/meshes/BRUpperHipLink.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.75294 0.75294 0.75294 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://FullBotTest2URDF.SLDASM/meshes/BRUpperHipLink.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="BRUpperHipJoint"
+    type="revolute">
+    <origin
+      xyz="-0.165497893612396 -0.150954465430273 -0.01646814190852"
+      rpy="0 -0.0334260590095873 0" />
+    <parent
+      link="BaseLink" />
+    <child
+      link="BRUpperHipLink" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="BRLowerHipLink">
+    <inertial>
+      <origin
+        xyz="-0.0031718 -0.00024545 -0.0075193"
+        rpy="0 0 0" />
+      <mass
+        value="0.1282" />
+      <inertia
+        ixx="3.8463E-05"
+        ixy="2.4145E-07"
+        ixz="9.7233E-06"
+        iyy="5.9344E-05"
+        iyz="1.1421E-07"
+        izz="3.3436E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://FullBotTest2URDF.SLDASM/meshes/BRLowerHipLink.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.75294 0.75294 0.75294 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://FullBotTest2URDF.SLDASM/meshes/BRLowerHipLink.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="BRLowerHipJoint"
+    type="revolute">
+    <origin
+      xyz="0.00936699263991836 -0.00410604336205855 -0.0469305737224566"
+      rpy="0 0 0" />
+    <parent
+      link="BRUpperHipLink" />
+    <child
+      link="BRLowerHipLink" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="BRKneeLink">
+    <inertial>
+      <origin
+        xyz="-0.022599 -0.0072616 -0.046543"
+        rpy="0 0 0" />
+      <mass
+        value="0.13883" />
+      <inertia
+        ixx="0.00014628"
+        ixy="8.8151E-07"
+        ixz="-5.158E-05"
+        iyy="0.00017391"
+        iyz="1.8687E-06"
+        izz="4.6991E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://FullBotTest2URDF.SLDASM/meshes/BRKneeLink.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.75294 0.75294 0.75294 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://FullBotTest2URDF.SLDASM/meshes/BRKneeLink.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="BRKneeJoint"
+    type="revolute">
+    <origin
+      xyz="0.0305542637867015 4.88994104668183E-05 -0.0516375306661785"
+      rpy="0 0 0" />
+    <parent
+      link="BRLowerHipLink" />
+    <child
+      link="BRKneeLink" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+</robot>

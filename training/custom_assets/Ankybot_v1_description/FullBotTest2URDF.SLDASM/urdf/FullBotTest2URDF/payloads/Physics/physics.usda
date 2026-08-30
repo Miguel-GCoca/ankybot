@@ -1,0 +1,376 @@
+#usda 1.0
+(
+    customLayerData = {
+        string creator = "URDF USD Converter v0.1.0"
+    }
+    defaultPrim = "tn__FullBotTest2URDFSLDASM_pX0"
+    doc = """Generated from Composed Stage of root layer /tmp/tmp_s7v8nw4/FullBotTest2URDF.SLDASM.usdc
+
+
+Generated from Composed Stage of root layer /workspace/custom_assets/Ankybot_v1_description/FullBotTest2URDF.SLDASM/urdf/usdex/FullBotTest2URDF.SLDASM.usdc
+
+
+Generated from Composed Stage of root layer /workspace/custom_assets/Ankybot_v1_description/FullBotTest2URDF.SLDASM/urdf/temp/FullBotTest2URDF.usd
+
+
+Generated from Composed Stage of root layer /workspace/custom_assets/Ankybot_v1_description/FullBotTest2URDF.SLDASM/urdf/FullBotTest2URDF/payloads/base.usd
+"""
+    kilogramsPerUnit = 1
+    metersPerUnit = 1
+    upAxis = "Z"
+)
+
+over "tn__FullBotTest2URDFSLDASM_pX0"
+{
+    over "Geometry"
+    {
+        over "BaseLink" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsArticulationRootAPI", "NewtonArticulationRootAPI", "PhysicsMassAPI"]
+        )
+        {
+            bool newton:selfCollisionEnabled = 0
+            point3f physics:centerOfMass = (0.000065192, -0.0000037379, -0.0039004)
+            float3 physics:diagonalInertia = (0.0025956898, 0.0045, 0.0069283103)
+            float physics:mass = 1.1478
+            quatf physics:principalAxes = (0.9999651, 8.7485824e-10, 0.008356449, 2.0432045e-9)
+
+            over "FLUpperHipLink" (
+                prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+            )
+            {
+                point3f physics:centerOfMass = (0.0031695, 0.000025708, 0.0080334)
+                float3 physics:diagonalInertia = (0.000012551388, 0.000017088, 0.000019035611)
+                float physics:mass = 0.080676
+                quatf physics:principalAxes = (0.68544006, 0.00006885853, 0.7281291, -0.00005282592)
+
+                over "FLLowerHipLink" (
+                    prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+                )
+                {
+                    point3f physics:centerOfMass = (0.0031718, 0.00024545, -0.0075193)
+                    float3 physics:diagonalInertia = (0.00002590648, 0.000045987326, 0.000059349193)
+                    float physics:mass = 0.1282
+                    quatf physics:principalAxes = (0.6289194, 0.64077973, 0.30773094, 0.3149022)
+
+                    over "FLKneeLink" (
+                        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+                    )
+                    {
+                        point3f physics:centerOfMass = (0.025035, 0.0072628, -0.045279)
+                        float3 physics:diagonalInertia = (0.00002501748, 0.00016822487, 0.00017393964)
+                        float physics:mass = 0.13883
+                        quatf physics:principalAxes = (0.3674553, 0.38095653, 0.59836173, 0.6015081)
+                    }
+                }
+            }
+
+            over "FRUpperHipLink" (
+                prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+            )
+            {
+                point3f physics:centerOfMass = (0.0036639, 0.000025708, 0.0084262)
+                float3 physics:diagonalInertia = (0.000012551388, 0.000017088, 0.000019035611)
+                float physics:mass = 0.080676
+                quatf physics:principalAxes = (0.68544006, 0.00006885967, 0.7281291, -0.000052822983)
+
+                over "FRLowerHipLink" (
+                    prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+                )
+                {
+                    point3f physics:centerOfMass = (-0.014129, -0.00025961, -0.0074696)
+                    float3 physics:diagonalInertia = (0.000025501256, 0.000046395115, 0.00005934663)
+                    float physics:mass = 0.1282
+                    quatf physics:principalAxes = (0.64213246, 0.64672613, 0.2875423, 0.29450068)
+
+                    over "FRKneeLink" (
+                        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+                    )
+                    {
+                        point3f physics:centerOfMass = (0.028221, 0.0072646, -0.043365)
+                        float3 physics:diagonalInertia = (0.000025015928, 0.00016821857, 0.00017393951)
+                        float physics:mass = 0.13883
+                        quatf physics:principalAxes = (0.34573904, 0.35907257, 0.6111974, 0.6147919)
+                    }
+                }
+            }
+
+            over "BLUpperHipLink" (
+                prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+            )
+            {
+                point3f physics:centerOfMass = (-0.0031695, 0.00047429, 0.0081087)
+                float3 physics:diagonalInertia = (0.000012551388, 0.000017088, 0.000019035611)
+                float physics:mass = 0.080676
+                quatf physics:principalAxes = (0.7281291, -0.000052822983, 0.68544006, 0.00006885967)
+
+                over "BLLowerHipLink" (
+                    prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+                )
+                {
+                    point3f physics:centerOfMass = (0.012719, 0.00084989, -0.0083278)
+                    float3 physics:diagonalInertia = (0.000026357267, 0.00004553868, 0.000059347054)
+                    float physics:mass = 0.1282
+                    quatf physics:principalAxes = (0.34072053, 0.34835988, 0.61472976, 0.6202114)
+
+                    over "BLKneeLink" (
+                        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+                    )
+                    {
+                        point3f physics:centerOfMass = (-0.018931, -0.0065678, -0.041961)
+                        float3 physics:diagonalInertia = (0.0000250172, 0.0001682232, 0.0001739396)
+                        float physics:mass = 0.13883
+                        quatf physics:principalAxes = (0.60260385, 0.6058934, 0.36047626, 0.3739233)
+                    }
+                }
+            }
+
+            over "BRUpperHipLink" (
+                prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+            )
+            {
+                point3f physics:centerOfMass = (-0.0036639, -0.000025708, 0.0084262)
+                float3 physics:diagonalInertia = (0.000012551388, 0.000017088, 0.000019035611)
+                float physics:mass = 0.080676
+                quatf physics:principalAxes = (0.7281291, -0.000052822983, 0.68544006, 0.00006885967)
+
+                over "BRLowerHipLink" (
+                    prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+                )
+                {
+                    point3f physics:centerOfMass = (-0.0031718, -0.00024545, -0.0075193)
+                    float3 physics:diagonalInertia = (0.00002590648, 0.000045987326, 0.000059349193)
+                    float physics:mass = 0.1282
+                    quatf physics:principalAxes = (0.30773094, 0.3149022, 0.6289194, 0.64077973)
+
+                    over "BRKneeLink" (
+                        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+                    )
+                    {
+                        point3f physics:centerOfMass = (-0.022599, -0.0072616, -0.046543)
+                        float3 physics:diagonalInertia = (0.000025017256, 0.00016822401, 0.00017393974)
+                        float physics:mass = 0.13883
+                        quatf physics:principalAxes = (0.5883999, 0.59120136, 0.38318002, 0.39678663)
+                    }
+                }
+            }
+        }
+    }
+
+    over "Physics"
+    {
+        def PhysicsRevoluteJoint "FLUpperHipJoint" (
+            prepend apiSchemas = ["PhysicsDriveAPI:angular", "PhysicsJointStateAPI:angular"]
+        )
+        {
+            uniform token physics:axis = "X"
+            custom rel physics:body0 = </tn__FullBotTest2URDFSLDASM_pX0/Geometry/BaseLink>
+            custom rel physics:body1 = </tn__FullBotTest2URDFSLDASM_pX0/Geometry/BaseLink/FLUpperHipLink>
+            point3f physics:localPos0 = (0.16644852, 0.15044554, -0.0104353065)
+            point3f physics:localPos1 = (0, 0, 0)
+            quatf physics:localRot0 = (1, 0, 0, 0)
+            quatf physics:localRot1 = (1, 0, 0, 0)
+            float physics:lowerLimit = 0
+            float physics:upperLimit = 0
+            custom float urdf:limit:effort = 0
+            custom float urdf:limit:velocity = 0
+        }
+
+        def PhysicsRevoluteJoint "FLLowerHipJoint" (
+            prepend apiSchemas = ["PhysicsDriveAPI:angular", "PhysicsJointStateAPI:angular"]
+        )
+        {
+            uniform token physics:axis = "Y"
+            custom rel physics:body0 = </tn__FullBotTest2URDFSLDASM_pX0/Geometry/BaseLink/FLUpperHipLink>
+            custom rel physics:body1 = </tn__FullBotTest2URDFSLDASM_pX0/Geometry/BaseLink/FLUpperHipLink/FLLowerHipLink>
+            point3f physics:localPos0 = (-0.009861371, 0.0041060434, -0.047323313)
+            point3f physics:localPos1 = (0, 0, 0)
+            quatf physics:localRot0 = (0, -1, 0, 0)
+            quatf physics:localRot1 = (0, -1, 0, 0)
+            float physics:lowerLimit = 0
+            float physics:upperLimit = 0
+            custom float urdf:limit:effort = 0
+            custom float urdf:limit:velocity = 0
+        }
+
+        def PhysicsRevoluteJoint "FLKneeJoint" (
+            prepend apiSchemas = ["PhysicsDriveAPI:angular", "PhysicsJointStateAPI:angular"]
+        )
+        {
+            uniform token physics:axis = "Y"
+            custom rel physics:body0 = </tn__FullBotTest2URDFSLDASM_pX0/Geometry/BaseLink/FLUpperHipLink/FLLowerHipLink>
+            custom rel physics:body1 = </tn__FullBotTest2URDFSLDASM_pX0/Geometry/BaseLink/FLUpperHipLink/FLLowerHipLink/FLKneeLink>
+            point3f physics:localPos0 = (-0.030554263, -0.000048899412, -0.05163753)
+            point3f physics:localPos1 = (0, 0, 0)
+            quatf physics:localRot0 = (0, -1, 0, 0)
+            quatf physics:localRot1 = (0, -1, 0, 0)
+            float physics:lowerLimit = 0
+            float physics:upperLimit = 0
+            custom float urdf:limit:effort = 0
+            custom float urdf:limit:velocity = 0
+        }
+
+        def PhysicsRevoluteJoint "FRUpperHipJoint" (
+            prepend apiSchemas = ["PhysicsDriveAPI:angular", "PhysicsJointStateAPI:angular"]
+        )
+        {
+            uniform token physics:axis = "X"
+            custom rel physics:body0 = </tn__FullBotTest2URDFSLDASM_pX0/Geometry/BaseLink>
+            custom rel physics:body1 = </tn__FullBotTest2URDFSLDASM_pX0/Geometry/BaseLink/FRUpperHipLink>
+            point3f physics:localPos0 = (0.16595414, -0.15045446, -0.010828044)
+            point3f physics:localPos1 = (0, 0, 0)
+            quatf physics:localRot0 = (1, 0, 0, 0)
+            quatf physics:localRot1 = (1, 0, 0, 0)
+            float physics:lowerLimit = 0
+            float physics:upperLimit = 0
+            custom float urdf:limit:effort = 0
+            custom float urdf:limit:velocity = 0
+        }
+
+        def PhysicsRevoluteJoint "FRLowerHipJoint" (
+            prepend apiSchemas = ["PhysicsDriveAPI:angular", "PhysicsJointStateAPI:angular"]
+        )
+        {
+            uniform token physics:axis = "Y"
+            custom rel physics:body0 = </tn__FullBotTest2URDFSLDASM_pX0/Geometry/BaseLink/FRUpperHipLink>
+            custom rel physics:body1 = </tn__FullBotTest2URDFSLDASM_pX0/Geometry/BaseLink/FRUpperHipLink/FRLowerHipLink>
+            point3f physics:localPos0 = (0.01093004, -0.004195508, -0.046583377)
+            point3f physics:localPos1 = (0, 0, 0)
+            quatf physics:localRot0 = (1, 0, 0, 0)
+            quatf physics:localRot1 = (1, 0, 0, 0)
+            float physics:lowerLimit = 0
+            float physics:upperLimit = 0
+            custom float urdf:limit:effort = 0
+            custom float urdf:limit:velocity = 0
+        }
+
+        def PhysicsRevoluteJoint "FRKneeJoint" (
+            prepend apiSchemas = ["PhysicsDriveAPI:angular", "PhysicsJointStateAPI:angular"]
+        )
+        {
+            uniform token physics:axis = "Y"
+            custom rel physics:body0 = </tn__FullBotTest2URDFSLDASM_pX0/Geometry/BaseLink/FRUpperHipLink/FRLowerHipLink>
+            custom rel physics:body1 = </tn__FullBotTest2URDFSLDASM_pX0/Geometry/BaseLink/FRUpperHipLink/FRLowerHipLink/FRKneeLink>
+            point3f physics:localPos0 = (-0.03361401, -0.000046997437, -0.049700063)
+            point3f physics:localPos1 = (0, 0, 0)
+            quatf physics:localRot0 = (1, 0, 0, 0)
+            quatf physics:localRot1 = (1, 0, 0, 0)
+            float physics:lowerLimit = 0
+            float physics:upperLimit = 0
+            custom float urdf:limit:effort = 0
+            custom float urdf:limit:velocity = 0
+        }
+
+        def PhysicsRevoluteJoint "BLUpperHipJoint" (
+            prepend apiSchemas = ["PhysicsDriveAPI:angular", "PhysicsJointStateAPI:angular"]
+        )
+        {
+            uniform token physics:axis = "X"
+            custom rel physics:body0 = </tn__FullBotTest2URDFSLDASM_pX0/Geometry/BaseLink>
+            custom rel physics:body1 = </tn__FullBotTest2URDFSLDASM_pX0/Geometry/BaseLink/BLUpperHipLink>
+            point3f physics:localPos0 = (-0.1660026, 0.15044554, -0.01616739)
+            point3f physics:localPos1 = (0, 0, 0)
+            quatf physics:localRot0 = (0.99986035, 0, -0.016711907, 0)
+            quatf physics:localRot1 = (1, 0, 0, 0)
+            float physics:lowerLimit = 0
+            float physics:upperLimit = 0
+            custom float urdf:limit:effort = 0
+            custom float urdf:limit:velocity = 0
+        }
+
+        def PhysicsRevoluteJoint "BLLowerHipJoint" (
+            prepend apiSchemas = ["PhysicsDriveAPI:angular", "PhysicsJointStateAPI:angular"]
+        )
+        {
+            uniform token physics:axis = "Y"
+            custom rel physics:body0 = </tn__FullBotTest2URDFSLDASM_pX0/Geometry/BaseLink/BLUpperHipLink>
+            custom rel physics:body1 = </tn__FullBotTest2URDFSLDASM_pX0/Geometry/BaseLink/BLUpperHipLink/BLLowerHipLink>
+            point3f physics:localPos0 = (-0.01043465, 0.004106013, -0.0468403)
+            point3f physics:localPos1 = (0, 0, 0)
+            quatf physics:localRot0 = (0, -1, 0, 0)
+            quatf physics:localRot1 = (0, -1, 0, 0)
+            float physics:lowerLimit = 0
+            float physics:upperLimit = 0
+            custom float urdf:limit:effort = 0
+            custom float urdf:limit:velocity = 0
+        }
+
+        def PhysicsRevoluteJoint "BLKneeJoint" (
+            prepend apiSchemas = ["PhysicsDriveAPI:angular", "PhysicsJointStateAPI:angular"]
+        )
+        {
+            uniform token physics:axis = "Y"
+            custom rel physics:body0 = </tn__FullBotTest2URDFSLDASM_pX0/Geometry/BaseLink/BLUpperHipLink/BLLowerHipLink>
+            custom rel physics:body1 = </tn__FullBotTest2URDFSLDASM_pX0/Geometry/BaseLink/BLUpperHipLink/BLLowerHipLink/BLKneeLink>
+            point3f physics:localPos0 = (0.018185807, -0.00005439025, -0.057171747)
+            point3f physics:localPos1 = (0, 0, 0)
+            quatf physics:localRot0 = (0, -1, 0, 0)
+            quatf physics:localRot1 = (0, -1, 0, 0)
+            float physics:lowerLimit = 0
+            float physics:upperLimit = 0
+            custom float urdf:limit:effort = 0
+            custom float urdf:limit:velocity = 0
+        }
+
+        def PhysicsRevoluteJoint "BRUpperHipJoint" (
+            prepend apiSchemas = ["PhysicsDriveAPI:angular", "PhysicsJointStateAPI:angular"]
+        )
+        {
+            uniform token physics:axis = "X"
+            custom rel physics:body0 = </tn__FullBotTest2URDFSLDASM_pX0/Geometry/BaseLink>
+            custom rel physics:body1 = </tn__FullBotTest2URDFSLDASM_pX0/Geometry/BaseLink/BRUpperHipLink>
+            point3f physics:localPos0 = (-0.1654979, -0.15095447, -0.016468141)
+            point3f physics:localPos1 = (0, 0, 0)
+            quatf physics:localRot0 = (0.99986035, 0, -0.016711907, 0)
+            quatf physics:localRot1 = (1, 0, 0, 0)
+            float physics:lowerLimit = 0
+            float physics:upperLimit = 0
+            custom float urdf:limit:effort = 0
+            custom float urdf:limit:velocity = 0
+        }
+
+        def PhysicsRevoluteJoint "BRLowerHipJoint" (
+            prepend apiSchemas = ["PhysicsDriveAPI:angular", "PhysicsJointStateAPI:angular"]
+        )
+        {
+            uniform token physics:axis = "Y"
+            custom rel physics:body0 = </tn__FullBotTest2URDFSLDASM_pX0/Geometry/BaseLink/BRUpperHipLink>
+            custom rel physics:body1 = </tn__FullBotTest2URDFSLDASM_pX0/Geometry/BaseLink/BRUpperHipLink/BRLowerHipLink>
+            point3f physics:localPos0 = (0.009366993, -0.0041060434, -0.046930574)
+            point3f physics:localPos1 = (0, 0, 0)
+            quatf physics:localRot0 = (1, 0, 0, 0)
+            quatf physics:localRot1 = (1, 0, 0, 0)
+            float physics:lowerLimit = 0
+            float physics:upperLimit = 0
+            custom float urdf:limit:effort = 0
+            custom float urdf:limit:velocity = 0
+        }
+
+        def PhysicsRevoluteJoint "BRKneeJoint" (
+            prepend apiSchemas = ["PhysicsDriveAPI:angular", "PhysicsJointStateAPI:angular"]
+        )
+        {
+            uniform token physics:axis = "Y"
+            custom rel physics:body0 = </tn__FullBotTest2URDFSLDASM_pX0/Geometry/BaseLink/BRUpperHipLink/BRLowerHipLink>
+            custom rel physics:body1 = </tn__FullBotTest2URDFSLDASM_pX0/Geometry/BaseLink/BRUpperHipLink/BRLowerHipLink/BRKneeLink>
+            point3f physics:localPos0 = (0.030554263, 0.000048899412, -0.05163753)
+            point3f physics:localPos1 = (0, 0, 0)
+            quatf physics:localRot0 = (1, 0, 0, 0)
+            quatf physics:localRot1 = (1, 0, 0, 0)
+            float physics:lowerLimit = 0
+            float physics:upperLimit = 0
+            custom float urdf:limit:effort = 0
+            custom float urdf:limit:velocity = 0
+        }
+
+        def PhysicsFixedJoint "root_joint"
+        {
+            custom rel physics:body0 = </tn__FullBotTest2URDFSLDASM_pX0>
+            custom rel physics:body1 = </tn__FullBotTest2URDFSLDASM_pX0/Geometry/BaseLink>
+            point3f physics:localPos0 = (0, 0, 0)
+            point3f physics:localPos1 = (0, 0, 0)
+            quatf physics:localRot0 = (1, 0, 0, 0)
+            quatf physics:localRot1 = (1, 0, 0, 0)
+        }
+    }
+}
+

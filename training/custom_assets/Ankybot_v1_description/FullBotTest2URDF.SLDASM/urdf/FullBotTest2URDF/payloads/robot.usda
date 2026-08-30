@@ -1,0 +1,213 @@
+#usda 1.0
+(
+    customLayerData = {
+        string creator = "URDF USD Converter v0.1.0"
+    }
+    defaultPrim = "tn__FullBotTest2URDFSLDASM_pX0"
+    doc = """Generated from Composed Stage of root layer /tmp/tmp_s7v8nw4/FullBotTest2URDF.SLDASM.usdc
+
+
+Generated from Composed Stage of root layer /workspace/custom_assets/Ankybot_v1_description/FullBotTest2URDF.SLDASM/urdf/usdex/FullBotTest2URDF.SLDASM.usdc
+
+
+Generated from Composed Stage of root layer /workspace/custom_assets/Ankybot_v1_description/FullBotTest2URDF.SLDASM/urdf/temp/FullBotTest2URDF.usd
+
+
+Generated from Composed Stage of root layer /workspace/custom_assets/Ankybot_v1_description/FullBotTest2URDF.SLDASM/urdf/FullBotTest2URDF/payloads/base.usd
+"""
+    kilogramsPerUnit = 1
+    metersPerUnit = 1
+    upAxis = "Z"
+)
+
+over "tn__FullBotTest2URDFSLDASM_pX0" (
+    prepend apiSchemas = ["IsaacRobotAPI", "IsaacLinkAPI"]
+)
+{
+    custom rel isaac:physics:robotJoints
+    prepend rel isaac:physics:robotJoints = [
+        </tn__FullBotTest2URDFSLDASM_pX0/Physics/FLUpperHipJoint>,
+        </tn__FullBotTest2URDFSLDASM_pX0/Physics/FRUpperHipJoint>,
+        </tn__FullBotTest2URDFSLDASM_pX0/Physics/BLUpperHipJoint>,
+        </tn__FullBotTest2URDFSLDASM_pX0/Physics/BRUpperHipJoint>,
+        </tn__FullBotTest2URDFSLDASM_pX0/Physics/root_joint>,
+        </tn__FullBotTest2URDFSLDASM_pX0/Physics/FLLowerHipJoint>,
+        </tn__FullBotTest2URDFSLDASM_pX0/Physics/FRLowerHipJoint>,
+        </tn__FullBotTest2URDFSLDASM_pX0/Physics/BLLowerHipJoint>,
+        </tn__FullBotTest2URDFSLDASM_pX0/Physics/BRLowerHipJoint>,
+        </tn__FullBotTest2URDFSLDASM_pX0/Physics/FLKneeJoint>,
+        </tn__FullBotTest2URDFSLDASM_pX0/Physics/FRKneeJoint>,
+        </tn__FullBotTest2URDFSLDASM_pX0/Physics/BLKneeJoint>,
+        </tn__FullBotTest2URDFSLDASM_pX0/Physics/BRKneeJoint>,
+    ]
+    custom rel isaac:physics:robotLinks
+    prepend rel isaac:physics:robotLinks = [
+        </tn__FullBotTest2URDFSLDASM_pX0/Geometry/BaseLink>,
+        </tn__FullBotTest2URDFSLDASM_pX0/Geometry/BaseLink/FLUpperHipLink>,
+        </tn__FullBotTest2URDFSLDASM_pX0/Geometry/BaseLink/FRUpperHipLink>,
+        </tn__FullBotTest2URDFSLDASM_pX0/Geometry/BaseLink/BLUpperHipLink>,
+        </tn__FullBotTest2URDFSLDASM_pX0/Geometry/BaseLink/BRUpperHipLink>,
+        </tn__FullBotTest2URDFSLDASM_pX0/Geometry/BaseLink/FLUpperHipLink/FLLowerHipLink>,
+        </tn__FullBotTest2URDFSLDASM_pX0/Geometry/BaseLink/FRUpperHipLink/FRLowerHipLink>,
+        </tn__FullBotTest2URDFSLDASM_pX0/Geometry/BaseLink/BLUpperHipLink/BLLowerHipLink>,
+        </tn__FullBotTest2URDFSLDASM_pX0/Geometry/BaseLink/BRUpperHipLink/BRLowerHipLink>,
+        </tn__FullBotTest2URDFSLDASM_pX0/Geometry/BaseLink/FLUpperHipLink/FLLowerHipLink/FLKneeLink>,
+        </tn__FullBotTest2URDFSLDASM_pX0/Geometry/BaseLink/FRUpperHipLink/FRLowerHipLink/FRKneeLink>,
+        </tn__FullBotTest2URDFSLDASM_pX0/Geometry/BaseLink/BLUpperHipLink/BLLowerHipLink/BLKneeLink>,
+        </tn__FullBotTest2URDFSLDASM_pX0/Geometry/BaseLink/BRUpperHipLink/BRLowerHipLink/BRKneeLink>,
+    ]
+
+    over "Physics"
+    {
+        over "FLUpperHipJoint" (
+            prepend apiSchemas = ["IsaacJointAPI"]
+        )
+        {
+        }
+
+        over "FRUpperHipJoint" (
+            prepend apiSchemas = ["IsaacJointAPI"]
+        )
+        {
+        }
+
+        over "BLUpperHipJoint" (
+            prepend apiSchemas = ["IsaacJointAPI"]
+        )
+        {
+        }
+
+        over "BRUpperHipJoint" (
+            prepend apiSchemas = ["IsaacJointAPI"]
+        )
+        {
+        }
+
+        over "root_joint" (
+            prepend apiSchemas = ["IsaacJointAPI"]
+        )
+        {
+        }
+
+        over "FLLowerHipJoint" (
+            prepend apiSchemas = ["IsaacJointAPI"]
+        )
+        {
+        }
+
+        over "FRLowerHipJoint" (
+            prepend apiSchemas = ["IsaacJointAPI"]
+        )
+        {
+        }
+
+        over "BLLowerHipJoint" (
+            prepend apiSchemas = ["IsaacJointAPI"]
+        )
+        {
+        }
+
+        over "BRLowerHipJoint" (
+            prepend apiSchemas = ["IsaacJointAPI"]
+        )
+        {
+        }
+
+        over "FLKneeJoint" (
+            prepend apiSchemas = ["IsaacJointAPI"]
+        )
+        {
+        }
+
+        over "FRKneeJoint" (
+            prepend apiSchemas = ["IsaacJointAPI"]
+        )
+        {
+        }
+
+        over "BLKneeJoint" (
+            prepend apiSchemas = ["IsaacJointAPI"]
+        )
+        {
+        }
+
+        over "BRKneeJoint" (
+            prepend apiSchemas = ["IsaacJointAPI"]
+        )
+        {
+        }
+    }
+
+    over "Geometry"
+    {
+        over "BaseLink" (
+            prepend apiSchemas = ["IsaacLinkAPI"]
+        )
+        {
+            over "FLUpperHipLink" (
+                prepend apiSchemas = ["IsaacLinkAPI"]
+            )
+            {
+                over "FLLowerHipLink" (
+                    prepend apiSchemas = ["IsaacLinkAPI"]
+                )
+                {
+                    over "FLKneeLink" (
+                        prepend apiSchemas = ["IsaacLinkAPI"]
+                    )
+                    {
+                    }
+                }
+            }
+
+            over "FRUpperHipLink" (
+                prepend apiSchemas = ["IsaacLinkAPI"]
+            )
+            {
+                over "FRLowerHipLink" (
+                    prepend apiSchemas = ["IsaacLinkAPI"]
+                )
+                {
+                    over "FRKneeLink" (
+                        prepend apiSchemas = ["IsaacLinkAPI"]
+                    )
+                    {
+                    }
+                }
+            }
+
+            over "BLUpperHipLink" (
+                prepend apiSchemas = ["IsaacLinkAPI"]
+            )
+            {
+                over "BLLowerHipLink" (
+                    prepend apiSchemas = ["IsaacLinkAPI"]
+                )
+                {
+                    over "BLKneeLink" (
+                        prepend apiSchemas = ["IsaacLinkAPI"]
+                    )
+                    {
+                    }
+                }
+            }
+
+            over "BRUpperHipLink" (
+                prepend apiSchemas = ["IsaacLinkAPI"]
+            )
+            {
+                over "BRLowerHipLink" (
+                    prepend apiSchemas = ["IsaacLinkAPI"]
+                )
+                {
+                    over "BRKneeLink" (
+                        prepend apiSchemas = ["IsaacLinkAPI"]
+                    )
+                    {
+                    }
+                }
+            }
+        }
+    }
+}
+
