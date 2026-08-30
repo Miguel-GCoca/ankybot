@@ -39,4 +39,4 @@ media/            Training montage videos and hardware demo clips
 
 ## Status
 
-Actively evolving — see each subproject's own README/CLAUDE.md for current details.
+Complete! Awarded "Faculty's Choice" at University of Central Florida Summer '26 senior design showcase.
