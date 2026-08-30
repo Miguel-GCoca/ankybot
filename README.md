@@ -6,6 +6,11 @@ Training montage and demo clips are in [`media/`](media/) — see
 `media/training_montage/ankybot_v2_training_montage/rl-video-step-6000.mp4` for
 the latest checkpoint's gait, or `media/ankybot_v1.mp4` for a hardware demo.
 
+See [`ENGINEERING.md`](ENGINEERING.md) for a write-up of the harder problems
+that came up along the way — a reward-gaming exploit found via playback, a
+sim-to-real actuator recalibration, and an ablation study that root-caused a
+standing-instability bug to noisy real joint-velocity feedback.
+
 ## Repo layout
 
 ```
@@ -50,3 +55,7 @@ the task config to point at this repo's `training/custom_assets/`.
 ## Status
 
 Complete! Awarded "Faculty's Choice" at University of Central Florida Summer '26 senior design showcase.
+
+## License
+
+MIT — see [`LICENSE`](LICENSE).
