@@ -14,13 +14,13 @@ class PolicyRunner(Node):
     Open-loop (no encoder feedback) ONNX policy runner.
 
     Observation order (must match training ObservationsCfg.PolicyCfg, 48 total):
-        imu_ang_vel         (3)  - from IMU angular_velocity
-        projected_gravity   (3)  - from IMU orientation quaternion
-        imu_lin_accel       (3)  - from IMU linear_acceleration
-        velocity_commands   (3)  - from /cmd_vel
-        joint_pos           (n)  - absolute joint position from /joint_states
-        joint_vel           (n)  - joint velocity from /joint_states
-        last_action         (n)  - raw clipped policy output from prev step
+        imu_ang_vel         (3)  from IMU angular_velocity
+        projected_gravity   (3)  from IMU orientation quaternion
+        imu_lin_accel       (3)  from IMU linear_acceleration
+        velocity_commands   (3)  from /cmd_vel
+        joint_pos           (n)  absolute joint position from /joint_states
+        joint_vel           (n)  joint velocity from /joint_states
+        last_action         (n)  raw clipped policy output from prev step
 
     Action pipeline (matches ActionsCfg: scale=0.4, use_default_offset=True,
     clip=(-1.4923, 1.4923)):
@@ -30,45 +30,22 @@ class PolicyRunner(Node):
         filtered = alpha*filtered + (1-alpha)*raw_action
         desired_pos = default_pos + 0.4 * filtered     (rad)
         target_pos = target_pos + clip(desired_pos - target_pos, -max_delta, max_delta)
-        (target_pos is the rate-limited goal for this control period; publish_step
+        (target_pos is the rate-limited goal for this control period, publish_step
          below interpolates toward it and does the actual publishing)
 
     max_delta = max_joint_vel_rad_s * control_dt, applied per joint on top of
-    the existing EMA filter - hard caps how far the goal can move per control
-    tick regardless of what the (filtered) policy output requests. Added
-    2026-07-21: on hardware, the EMA filter alone did not prevent large
-    single-tick jumps (e.g. on a command-direction reversal), which drove the
-    servos at/near their max slew rate and looked/felt too fast and too abrupt.
+    the EMA filter, a hard cap on how far the goal can move per control tick
+    regardless of what the filtered policy output requests, guarding against
+    large single-tick jumps (e.g. on a command-direction reversal) that would
+    otherwise drive the servos at/near their max slew rate.
 
-    max_joint_vel_rad_s raised 3.0 -> 8.0 same day, after user testing showed
-    walking gait amplitude was shrunk (roughly 2x as many smaller steps as
-    expected) - the cap was clipping legitimate swing-phase velocity, not
-    just abrupt jumps. A real trot-like swing (~2Hz gait, ~80-100ms swing
-    phase sweeping ~0.3-0.5 rad of thigh/foot travel) needs on the order of
-    4-6 rad/s, above the old 3.0 rad/s cap, so target_pos permanently lagged
-    desired_pos and the leg never reached full stride amplitude before the
-    policy moved to the next phase. 8.0 rad/s stays under the servo's rated
-    no-load 10.4719755 rad/s (600 deg/s) while clearing normal gait swing
-    speed - now mainly a backstop against pathological single-tick jumps
-    (the interpolated publish_step above already handles routine smoothing),
-    not a routine amplitude limiter. Still an estimate, not measured on
-    hardware - retune if gait amplitude still looks short, or if it's judged
-    too close to the servo's real (loaded, lower than no-load) max speed.
-
-    Sub-tick interpolated publishing (added 2026-07-21, same day): a real
-    servo has no compliance like the sim's spring-damper actuator model - it
-    snaps to whatever position it's told, fast. Publishing target_pos
-    directly at only 50Hz meant each ~0.06 rad (at max_joint_vel_rad_s=3.0)
-    step was small individually, but the servo fully completed each one well
-    within the 20ms before the next arrived, then sat idle - a rapid
-    snap-then-pause sequence, not a continuous ramp like sim shows (sim's
-    smoothness comes from physics integrating continuously between control
-    ticks, not from anything about the 50Hz action rate itself). A second,
-    faster timer (publish_rate_hz, default 200Hz) now linearly interpolates
-    between each control tick's old and new target_pos and publishes those
-    smaller, more frequent sub-steps instead - shrinks the settle-then-idle
-    gap without changing the policy's own 50Hz observation/action cadence
-    (must stay matched to training) or the overall max_joint_vel_rad_s cap.
+    A second, faster timer (publish_rate_hz, default 200Hz) linearly
+    interpolates between each control tick's old and new target_pos and
+    publishes those smaller, more frequent sub-steps, smoothing publication
+    (a real servo has no compliance like the sim's spring-damper actuator
+    model, it snaps to whatever position it's told) without changing the
+    policy's own 50Hz observation/action cadence or the overall
+    max_joint_vel_rad_s cap.
     """
 
     def __init__(self):
@@ -208,7 +185,7 @@ class PolicyRunner(Node):
     def step(self):
         now = self.get_clock().now().nanoseconds * 1e-9
         if self._last_step_time is not None and now < self._last_step_time:
-            self.get_logger().warn('Time jumped backwards — resetting filter and action state.')
+            self.get_logger().warn('Time jumped backwards, resetting filter and action state.')
             self.filtered_action = np.zeros(self.n, dtype=np.float32)
             self.last_action = np.zeros(self.n, dtype=np.float32)
         self._last_step_time = now

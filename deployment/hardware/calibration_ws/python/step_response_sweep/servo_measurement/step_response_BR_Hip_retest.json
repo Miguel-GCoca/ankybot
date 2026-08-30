@@ -1,0 +1,878 @@
+{
+  "BR_Hip_Joint": {
+    "joint": "BR_Hip_Joint",
+    "channel": 9,
+    "ranges_deg": [
+      15.0,
+      10.0,
+      5.0,
+      2.0
+    ],
+    "repeat_count": 5,
+    "record_secs": 2.0,
+    "groups": [
+      {
+        "range_label": "range30",
+        "half_range_deg": 15.0,
+        "direction": "fwd",
+        "initial_deg": -15.0,
+        "target_deg": 15.0,
+        "trials": [
+          {
+            "rep": 1,
+            "csv": "/home/mingus/calibration_ws/python/step_response_sweep/servo_measurement/joint_BR_Hip_Joint/range30_fwd_rep1.csv",
+            "step_size_deg": 30.0,
+            "final_value_deg": 17.778996838750878,
+            "percent_overshoot": 16.66667618711254,
+            "peak_time_s": 0.201759,
+            "zeta": 0.49542238496452734,
+            "omega_n_rad_s": 17.92548964530157,
+            "rise_time_s": 0.095556,
+            "settle_time_2pct_s": null,
+            "settled_within_window": false,
+            "n_samples": 735
+          },
+          {
+            "rep": 2,
+            "csv": "/home/mingus/calibration_ws/python/step_response_sweep/servo_measurement/joint_BR_Hip_Joint/range30_fwd_rep2.csv",
+            "step_size_deg": 30.0,
+            "final_value_deg": 17.69132462402865,
+            "percent_overshoot": 16.66667618711254,
+            "peak_time_s": 0.492697,
+            "zeta": 0.49542238496452734,
+            "omega_n_rad_s": 7.34047267457768,
+            "rise_time_s": 0.09531,
+            "settle_time_2pct_s": null,
+            "settled_within_window": false,
+            "n_samples": 735
+          },
+          {
+            "rep": 3,
+            "csv": "/home/mingus/calibration_ws/python/step_response_sweep/servo_measurement/joint_BR_Hip_Joint/range30_fwd_rep3.csv",
+            "step_size_deg": 30.0,
+            "final_value_deg": 17.77169078187226,
+            "percent_overshoot": 18.444437826314843,
+            "peak_time_s": 0.960739,
+            "zeta": 0.47383480491910834,
+            "omega_n_rad_s": 3.7132910380403312,
+            "rise_time_s": 0.095307,
+            "settle_time_2pct_s": null,
+            "settled_within_window": false,
+            "n_samples": 735
+          },
+          {
+            "rep": 4,
+            "csv": "/home/mingus/calibration_ws/python/step_response_sweep/servo_measurement/joint_BR_Hip_Joint/range30_fwd_rep4.csv",
+            "step_size_deg": 30.0,
+            "final_value_deg": 17.479452717118164,
+            "percent_overshoot": 14.88889178061297,
+            "peak_time_s": 0.163362,
+            "zeta": 0.518413038446359,
+            "omega_n_rad_s": 22.488811727023524,
+            "rise_time_s": 0.084428,
+            "settle_time_2pct_s": null,
+            "settled_within_window": false,
+            "n_samples": 735
+          },
+          {
+            "rep": 5,
+            "csv": "/home/mingus/calibration_ws/python/step_response_sweep/servo_measurement/joint_BR_Hip_Joint/range30_fwd_rep5.csv",
+            "step_size_deg": 30.0,
+            "final_value_deg": 17.87397389401666,
+            "percent_overshoot": 16.66667618711254,
+            "peak_time_s": 0.185154,
+            "zeta": 0.49542238496452734,
+            "omega_n_rad_s": 19.53308524442572,
+            "rise_time_s": 0.09805,
+            "settle_time_2pct_s": null,
+            "settled_within_window": false,
+            "n_samples": 735
+          }
+        ],
+        "summary": {
+          "zeta": {
+            "n": 5,
+            "min": 0.47383480491910834,
+            "max": 0.518413038446359,
+            "mean": 0.49570299965180986,
+            "median": 0.49542238496452734
+          },
+          "omega_n_rad_s": {
+            "n": 5,
+            "min": 3.7132910380403312,
+            "max": 22.488811727023524,
+            "mean": 14.200230065873765,
+            "median": 17.92548964530157
+          },
+          "rise_time_s": {
+            "n": 5,
+            "min": 0.084428,
+            "max": 0.09805,
+            "mean": 0.09373020000000001,
+            "median": 0.09531
+          },
+          "settle_time_2pct_s": null,
+          "percent_overshoot": {
+            "n": 5,
+            "min": 14.88889178061297,
+            "max": 18.444437826314843,
+            "mean": 16.66667163365309,
+            "median": 16.66667618711254
+          }
+        }
+      },
+      {
+        "range_label": "range30",
+        "half_range_deg": 15.0,
+        "direction": "rev",
+        "initial_deg": 15.0,
+        "target_deg": -15.0,
+        "trials": [
+          {
+            "rep": 1,
+            "csv": "/home/mingus/calibration_ws/python/step_response_sweep/servo_measurement/joint_BR_Hip_Joint/range30_rev_rep1.csv",
+            "step_size_deg": -30.0,
+            "final_value_deg": -12.314155086004602,
+            "percent_overshoot": 13.1111073741134,
+            "peak_time_s": 0.010936,
+            "zeta": 0.5430468774432762,
+            "omega_n_rad_s": 342.1101713024282,
+            "rise_time_s": 0.010936,
+            "settle_time_2pct_s": null,
+            "settled_within_window": false,
+            "n_samples": 735
+          },
+          {
+            "rep": 2,
+            "csv": "/home/mingus/calibration_ws/python/step_response_sweep/servo_measurement/joint_BR_Hip_Joint/range30_rev_rep2.csv",
+            "step_size_deg": -30.0,
+            "final_value_deg": -12.23378972345699,
+            "percent_overshoot": 87.77777923952812,
+            "peak_time_s": 0.010933,
+            "zeta": 0.04145977124052157,
+            "omega_n_rad_s": 287.59683537074125,
+            "rise_time_s": 0.010933,
+            "settle_time_2pct_s": null,
+            "settled_within_window": false,
+            "n_samples": 735
+          },
+          {
+            "rep": 3,
+            "csv": "/home/mingus/calibration_ws/python/step_response_sweep/servo_measurement/joint_BR_Hip_Joint/range30_rev_rep3.csv",
+            "step_size_deg": -30.0,
+            "final_value_deg": -12.482191821196324,
+            "percent_overshoot": 16.666664803463906,
+            "peak_time_s": 0.01094,
+            "zeta": 0.49542252746637155,
+            "omega_n_rad_s": 330.587678585853,
+            "rise_time_s": 0.01094,
+            "settle_time_2pct_s": null,
+            "settled_within_window": false,
+            "n_samples": 735
+          },
+          {
+            "rep": 4,
+            "csv": "/home/mingus/calibration_ws/python/step_response_sweep/servo_measurement/joint_BR_Hip_Joint/range30_rev_rep4.csv",
+            "step_size_deg": -30.0,
+            "final_value_deg": -12.328766451247954,
+            "percent_overshoot": 11.333334351262465,
+            "peak_time_s": 0.0191,
+            "zeta": 0.5696472711458439,
+            "omega_n_rad_s": 200.1258503090308,
+            "rise_time_s": 0.0191,
+            "settle_time_2pct_s": null,
+            "settled_within_window": false,
+            "n_samples": 735
+          },
+          {
+            "rep": 5,
+            "csv": "/home/mingus/calibration_ws/python/step_response_sweep/servo_measurement/joint_BR_Hip_Joint/range30_rev_rep5.csv",
+            "step_size_deg": -30.0,
+            "final_value_deg": -12.628310572880666,
+            "percent_overshoot": 89.55556364602768,
+            "peak_time_s": 0.013651,
+            "zeta": 0.03509143380138407,
+            "omega_n_rad_s": 230.27827515619586,
+            "rise_time_s": 0.013651,
+            "settle_time_2pct_s": null,
+            "settled_within_window": false,
+            "n_samples": 735
+          }
+        ],
+        "summary": {
+          "zeta": {
+            "n": 5,
+            "min": 0.03509143380138407,
+            "max": 0.5696472711458439,
+            "mean": 0.33693357621947945,
+            "median": 0.49542252746637155
+          },
+          "omega_n_rad_s": {
+            "n": 5,
+            "min": 200.1258503090308,
+            "max": 342.1101713024282,
+            "mean": 278.13976214484984,
+            "median": 287.59683537074125
+          },
+          "rise_time_s": {
+            "n": 5,
+            "min": 0.010933,
+            "max": 0.0191,
+            "mean": 0.013111999999999999,
+            "median": 0.01094
+          },
+          "settle_time_2pct_s": null,
+          "percent_overshoot": {
+            "n": 5,
+            "min": 11.333334351262465,
+            "max": 89.55556364602768,
+            "mean": 43.68888988287911,
+            "median": 16.666664803463906
+          }
+        }
+      },
+      {
+        "range_label": "range20",
+        "half_range_deg": 10.0,
+        "direction": "fwd",
+        "initial_deg": -10.0,
+        "target_deg": 10.0,
+        "trials": [
+          {
+            "rep": 1,
+            "csv": "/home/mingus/calibration_ws/python/step_response_sweep/servo_measurement/joint_BR_Hip_Joint/range20_fwd_rep1.csv",
+            "step_size_deg": 20.0,
+            "final_value_deg": 12.379909504347921,
+            "percent_overshoot": 23.333350636012977,
+            "peak_time_s": 0.193365,
+            "zeta": 0.4203246451297448,
+            "omega_n_rad_s": 17.905472071147493,
+            "rise_time_s": 0.079017,
+            "settle_time_2pct_s": null,
+            "settled_within_window": false,
+            "n_samples": 735
+          },
+          {
+            "rep": 2,
+            "csv": "/home/mingus/calibration_ws/python/step_response_sweep/servo_measurement/joint_BR_Hip_Joint/range20_fwd_rep2.csv",
+            "step_size_deg": 20.0,
+            "final_value_deg": 12.204567039752405,
+            "percent_overshoot": 28.666669704565784,
+            "peak_time_s": 0.209682,
+            "zeta": 0.36955358838317737,
+            "omega_n_rad_s": 16.12408647599223,
+            "rise_time_s": 0.084465,
+            "settle_time_2pct_s": null,
+            "settled_within_window": false,
+            "n_samples": 735
+          },
+          {
+            "rep": 3,
+            "csv": "/home/mingus/calibration_ws/python/step_response_sweep/servo_measurement/joint_BR_Hip_Joint/range20_fwd_rep3.csv",
+            "step_size_deg": 20.0,
+            "final_value_deg": 12.168036474666614,
+            "percent_overshoot": 23.333350636012977,
+            "peak_time_s": 0.234145,
+            "zeta": 0.4203246451297448,
+            "omega_n_rad_s": 14.7869551219861,
+            "rise_time_s": 0.076265,
+            "settle_time_2pct_s": null,
+            "settled_within_window": false,
+            "n_samples": 735
+          },
+          {
+            "rep": 4,
+            "csv": "/home/mingus/calibration_ws/python/step_response_sweep/servo_measurement/joint_BR_Hip_Joint/range20_fwd_rep4.csv",
+            "step_size_deg": 20.0,
+            "final_value_deg": 12.168036848923554,
+            "percent_overshoot": 23.333350636012977,
+            "peak_time_s": 1.774422,
+            "zeta": 0.4203246451297448,
+            "omega_n_rad_s": 1.9512222047728416,
+            "rise_time_s": 0.068107,
+            "settle_time_2pct_s": null,
+            "settled_within_window": false,
+            "n_samples": 735
+          },
+          {
+            "rep": 5,
+            "csv": "/home/mingus/calibration_ws/python/step_response_sweep/servo_measurement/joint_BR_Hip_Joint/range20_fwd_rep5.csv",
+            "step_size_deg": 20.0,
+            "final_value_deg": 12.073059606529297,
+            "percent_overshoot": 20.666674026263625,
+            "peak_time_s": 0.677704,
+            "zeta": 0.4485448459958869,
+            "omega_n_rad_s": 5.186671600653021,
+            "rise_time_s": 0.07626,
+            "settle_time_2pct_s": null,
+            "settled_within_window": false,
+            "n_samples": 735
+          }
+        ],
+        "summary": {
+          "zeta": {
+            "n": 5,
+            "min": 0.36955358838317737,
+            "max": 0.4485448459958869,
+            "mean": 0.4158144739536597,
+            "median": 0.4203246451297448
+          },
+          "omega_n_rad_s": {
+            "n": 5,
+            "min": 1.9512222047728416,
+            "max": 17.905472071147493,
+            "mean": 11.190881494910338,
+            "median": 14.7869551219861
+          },
+          "rise_time_s": {
+            "n": 5,
+            "min": 0.068107,
+            "max": 0.084465,
+            "mean": 0.0768228,
+            "median": 0.076265
+          },
+          "settle_time_2pct_s": null,
+          "percent_overshoot": {
+            "n": 5,
+            "min": 20.666674026263625,
+            "max": 28.666669704565784,
+            "mean": 23.86667912777367,
+            "median": 23.333350636012977
+          }
+        }
+      },
+      {
+        "range_label": "range20",
+        "half_range_deg": 10.0,
+        "direction": "rev",
+        "initial_deg": 10.0,
+        "target_deg": -10.0,
+        "trials": [
+          {
+            "rep": 1,
+            "csv": "/home/mingus/calibration_ws/python/step_response_sweep/servo_measurement/joint_BR_Hip_Joint/range20_rev_rep1.csv",
+            "step_size_deg": -20.0,
+            "final_value_deg": -6.725114529930308,
+            "percent_overshoot": 188.66666864797378,
+            "peak_time_s": 0.010951,
+            "zeta": -0.19806369750264327,
+            "omega_n_rad_s": 292.67538776327797,
+            "rise_time_s": 0.010951,
+            "settle_time_2pct_s": null,
+            "settled_within_window": false,
+            "n_samples": 735
+          },
+          {
+            "rep": 2,
+            "csv": "/home/mingus/calibration_ws/python/step_response_sweep/servo_measurement/joint_BR_Hip_Joint/range20_rev_rep2.csv",
+            "step_size_deg": -20.0,
+            "final_value_deg": -6.820091865888801,
+            "percent_overshoot": 74.00000131557529,
+            "peak_time_s": 0.019116,
+            "zeta": 0.09540750721133176,
+            "omega_n_rad_s": 165.09674265369856,
+            "rise_time_s": 0.019116,
+            "settle_time_2pct_s": null,
+            "settled_within_window": false,
+            "n_samples": 735
+          },
+          {
+            "rep": 3,
+            "csv": "/home/mingus/calibration_ws/python/step_response_sweep/servo_measurement/joint_BR_Hip_Joint/range20_rev_rep3.csv",
+            "step_size_deg": -20.0,
+            "final_value_deg": -6.732420680373161,
+            "percent_overshoot": 68.66666517154954,
+            "peak_time_s": 0.01641,
+            "zeta": 0.11880722673468087,
+            "omega_n_rad_s": 192.8093971585078,
+            "rise_time_s": 0.01641,
+            "settle_time_2pct_s": null,
+            "settled_within_window": false,
+            "n_samples": 735
+          },
+          {
+            "rep": 4,
+            "csv": "/home/mingus/calibration_ws/python/step_response_sweep/servo_measurement/joint_BR_Hip_Joint/range20_rev_rep4.csv",
+            "step_size_deg": -20.0,
+            "final_value_deg": -6.798173414560243,
+            "percent_overshoot": 76.66667792532465,
+            "peak_time_s": 0.016378,
+            "zeta": 0.08427502169740428,
+            "omega_n_rad_s": 192.50266624330914,
+            "rise_time_s": 0.016378,
+            "settle_time_2pct_s": null,
+            "settled_within_window": false,
+            "n_samples": 735
+          },
+          {
+            "rep": 5,
+            "csv": "/home/mingus/calibration_ws/python/step_response_sweep/servo_measurement/joint_BR_Hip_Joint/range20_rev_rep5.csv",
+            "step_size_deg": -20.0,
+            "final_value_deg": -6.84200947513924,
+            "percent_overshoot": 58.00000995897096,
+            "peak_time_s": 0.019146,
+            "zeta": 0.17084283235785447,
+            "omega_n_rad_s": 166.53445021257306,
+            "rise_time_s": 0.019146,
+            "settle_time_2pct_s": null,
+            "settled_within_window": false,
+            "n_samples": 735
+          }
+        ],
+        "summary": {
+          "zeta": {
+            "n": 5,
+            "min": -0.19806369750264327,
+            "max": 0.17084283235785447,
+            "mean": 0.054253778099725626,
+            "median": 0.09540750721133176
+          },
+          "omega_n_rad_s": {
+            "n": 5,
+            "min": 165.09674265369856,
+            "max": 292.67538776327797,
+            "mean": 201.92372880627332,
+            "median": 192.50266624330914
+          },
+          "rise_time_s": {
+            "n": 5,
+            "min": 0.010951,
+            "max": 0.019146,
+            "mean": 0.0164002,
+            "median": 0.01641
+          },
+          "settle_time_2pct_s": null,
+          "percent_overshoot": {
+            "n": 5,
+            "min": 58.00000995897096,
+            "max": 188.66666864797378,
+            "mean": 93.20000460387885,
+            "median": 74.00000131557529
+          }
+        }
+      },
+      {
+        "range_label": "range10",
+        "half_range_deg": 5.0,
+        "direction": "fwd",
+        "initial_deg": -5.0,
+        "target_deg": 5.0,
+        "trials": [
+          {
+            "rep": 1,
+            "csv": "/home/mingus/calibration_ws/python/step_response_sweep/servo_measurement/joint_BR_Hip_Joint/range10_fwd_rep1.csv",
+            "step_size_deg": 10.0,
+            "final_value_deg": 6.81278548153536,
+            "percent_overshoot": 43.333305680822484,
+            "peak_time_s": 0.103492,
+            "zeta": 0.25722916521657124,
+            "omega_n_rad_s": 31.41293009976813,
+            "rise_time_s": 0.076274,
+            "settle_time_2pct_s": null,
+            "settled_within_window": false,
+            "n_samples": 735
+          },
+          {
+            "rep": 2,
+            "csv": "/home/mingus/calibration_ws/python/step_response_sweep/servo_measurement/joint_BR_Hip_Joint/range10_fwd_rep2.csv",
+            "step_size_deg": 10.0,
+            "final_value_deg": 6.5570781689955275,
+            "percent_overshoot": 54.000012119819885,
+            "peak_time_s": 0.081731,
+            "zeta": 0.19247081576410294,
+            "omega_n_rad_s": 39.17058585685894,
+            "rise_time_s": 0.065392,
+            "settle_time_2pct_s": null,
+            "settled_within_window": false,
+            "n_samples": 735
+          },
+          {
+            "rep": 3,
+            "csv": "/home/mingus/calibration_ws/python/step_response_sweep/servo_measurement/joint_BR_Hip_Joint/range10_fwd_rep3.csv",
+            "step_size_deg": 10.0,
+            "final_value_deg": 6.367123684207012,
+            "percent_overshoot": 43.333305680822484,
+            "peak_time_s": 0.250511,
+            "zeta": 0.25722916521657124,
+            "omega_n_rad_s": 12.97742199697899,
+            "rise_time_s": 0.065387,
+            "settle_time_2pct_s": null,
+            "settled_within_window": false,
+            "n_samples": 735
+          },
+          {
+            "rep": 4,
+            "csv": "/home/mingus/calibration_ws/python/step_response_sweep/servo_measurement/joint_BR_Hip_Joint/range10_fwd_rep4.csv",
+            "step_size_deg": 10.0,
+            "final_value_deg": 6.995434470830669,
+            "percent_overshoot": 43.333305680822484,
+            "peak_time_s": 0.092653,
+            "zeta": 0.25722916521657124,
+            "omega_n_rad_s": 35.0877679285636,
+            "rise_time_s": 0.065416,
+            "settle_time_2pct_s": null,
+            "settled_within_window": false,
+            "n_samples": 735
+          },
+          {
+            "rep": 5,
+            "csv": "/home/mingus/calibration_ws/python/step_response_sweep/servo_measurement/joint_BR_Hip_Joint/range10_fwd_rep5.csv",
+            "step_size_deg": 10.0,
+            "final_value_deg": 7.170776654733479,
+            "percent_overshoot": 43.333305680822484,
+            "peak_time_s": 0.773076,
+            "zeta": 0.25722916521657124,
+            "omega_n_rad_s": 4.205261787825781,
+            "rise_time_s": 0.065401,
+            "settle_time_2pct_s": null,
+            "settled_within_window": false,
+            "n_samples": 735
+          }
+        ],
+        "summary": {
+          "zeta": {
+            "n": 5,
+            "min": 0.19247081576410294,
+            "max": 0.25722916521657124,
+            "mean": 0.24427749532607756,
+            "median": 0.25722916521657124
+          },
+          "omega_n_rad_s": {
+            "n": 5,
+            "min": 4.205261787825781,
+            "max": 39.17058585685894,
+            "mean": 24.570793533999087,
+            "median": 31.41293009976813
+          },
+          "rise_time_s": {
+            "n": 5,
+            "min": 0.065387,
+            "max": 0.076274,
+            "mean": 0.067574,
+            "median": 0.065401
+          },
+          "settle_time_2pct_s": null,
+          "percent_overshoot": {
+            "n": 5,
+            "min": 43.333305680822484,
+            "max": 54.000012119819885,
+            "mean": 45.466646968621966,
+            "median": 43.333305680822484
+          }
+        }
+      },
+      {
+        "range_label": "range10",
+        "half_range_deg": 5.0,
+        "direction": "rev",
+        "initial_deg": 5.0,
+        "target_deg": -5.0,
+        "trials": [
+          {
+            "rep": 1,
+            "csv": "/home/mingus/calibration_ws/python/step_response_sweep/servo_measurement/joint_BR_Hip_Joint/range10_rev_rep1.csv",
+            "step_size_deg": -10.0,
+            "final_value_deg": -1.6767123586289707,
+            "percent_overshoot": 134.0000030537874,
+            "peak_time_s": 0.008201,
+            "zeta": -0.0927579980458561,
+            "omega_n_rad_s": 384.7330449838232,
+            "rise_time_s": 0.008201,
+            "settle_time_2pct_s": null,
+            "settled_within_window": false,
+            "n_samples": 735
+          },
+          {
+            "rep": 2,
+            "csv": "/home/mingus/calibration_ws/python/step_response_sweep/servo_measurement/joint_BR_Hip_Joint/range10_rev_rep2.csv",
+            "step_size_deg": -10.0,
+            "final_value_deg": -1.7205466414874964,
+            "percent_overshoot": 75.33332254497702,
+            "peak_time_s": 0.016391,
+            "zeta": 0.08979628259822005,
+            "omega_n_rad_s": 192.443150822818,
+            "rise_time_s": 0.016391,
+            "settle_time_2pct_s": null,
+            "settled_within_window": false,
+            "n_samples": 735
+          },
+          {
+            "rep": 3,
+            "csv": "/home/mingus/calibration_ws/python/step_response_sweep/servo_measurement/joint_BR_Hip_Joint/range10_rev_rep3.csv",
+            "step_size_deg": -10.0,
+            "final_value_deg": -1.5671226282205382,
+            "percent_overshoot": 70.00000347642421,
+            "peak_time_s": 0.016374,
+            "zeta": 0.11280843518608949,
+            "omega_n_rad_s": 193.0972906118271,
+            "rise_time_s": 0.016374,
+            "settle_time_2pct_s": null,
+            "settled_within_window": false,
+            "n_samples": 735
+          },
+          {
+            "rep": 4,
+            "csv": "/home/mingus/calibration_ws/python/step_response_sweep/servo_measurement/joint_BR_Hip_Joint/range10_rev_rep4.csv",
+            "step_size_deg": -10.0,
+            "final_value_deg": -1.515980978584101,
+            "percent_overshoot": 123.33336491668176,
+            "peak_time_s": 0.008202,
+            "zeta": -0.0666079493354306,
+            "omega_n_rad_s": 383.8801455173396,
+            "rise_time_s": 0.008202,
+            "settle_time_2pct_s": null,
+            "settled_within_window": false,
+            "n_samples": 735
+          },
+          {
+            "rep": 5,
+            "csv": "/home/mingus/calibration_ws/python/step_response_sweep/servo_measurement/joint_BR_Hip_Joint/range10_rev_rep5.csv",
+            "step_size_deg": -10.0,
+            "final_value_deg": -1.6109584548889464,
+            "percent_overshoot": 59.333331188372696,
+            "peak_time_s": 0.01912,
+            "zeta": 0.163910194478356,
+            "omega_n_rad_s": 166.56194540338697,
+            "rise_time_s": 0.01912,
+            "settle_time_2pct_s": null,
+            "settled_within_window": false,
+            "n_samples": 735
+          }
+        ],
+        "summary": {
+          "zeta": {
+            "n": 5,
+            "min": -0.0927579980458561,
+            "max": 0.163910194478356,
+            "mean": 0.04142979297627577,
+            "median": 0.08979628259822005
+          },
+          "omega_n_rad_s": {
+            "n": 5,
+            "min": 166.56194540338697,
+            "max": 384.7330449838232,
+            "mean": 264.143115467839,
+            "median": 193.0972906118271
+          },
+          "rise_time_s": {
+            "n": 5,
+            "min": 0.008201,
+            "max": 0.01912,
+            "mean": 0.0136576,
+            "median": 0.016374
+          },
+          "settle_time_2pct_s": null,
+          "percent_overshoot": {
+            "n": 5,
+            "min": 59.333331188372696,
+            "max": 134.0000030537874,
+            "mean": 92.40000503604861,
+            "median": 75.33332254497702
+          }
+        }
+      },
+      {
+        "range_label": "range4",
+        "half_range_deg": 2.0,
+        "direction": "fwd",
+        "initial_deg": -2.0,
+        "target_deg": 2.0,
+        "trials": [
+          {
+            "rep": 1,
+            "csv": "/home/mingus/calibration_ws/python/step_response_sweep/servo_measurement/joint_BR_Hip_Joint/range4_fwd_rep1.csv",
+            "step_size_deg": 4.0,
+            "final_value_deg": 3.642007040209904,
+            "percent_overshoot": 103.3333074190346,
+            "peak_time_s": 0.756662,
+            "zeta": -0.010436676494041487,
+            "omega_n_rad_s": 4.152136310964936,
+            "rise_time_s": 0.038169,
+            "settle_time_2pct_s": null,
+            "settled_within_window": false,
+            "n_samples": 735
+          },
+          {
+            "rep": 2,
+            "csv": "/home/mingus/calibration_ws/python/step_response_sweep/servo_measurement/joint_BR_Hip_Joint/range4_fwd_rep2.csv",
+            "step_size_deg": 4.0,
+            "final_value_deg": 3.3497706596120445,
+            "percent_overshoot": 89.99992437028786,
+            "peak_time_s": 0.117096,
+            "zeta": 0.03351871614052692,
+            "omega_n_rad_s": 26.844289630117064,
+            "rise_time_s": 0.010929,
+            "settle_time_2pct_s": null,
+            "settled_within_window": false,
+            "n_samples": 735
+          },
+          {
+            "rep": 3,
+            "csv": "/home/mingus/calibration_ws/python/step_response_sweep/servo_measurement/joint_BR_Hip_Joint/range4_fwd_rep3.csv",
+            "step_size_deg": 4.0,
+            "final_value_deg": 3.43744193869192,
+            "percent_overshoot": 89.99992437028786,
+            "peak_time_s": 0.470931,
+            "zeta": 0.03351871614052692,
+            "omega_n_rad_s": 6.674776004400194,
+            "rise_time_s": 0.002751,
+            "settle_time_2pct_s": null,
+            "settled_within_window": false,
+            "n_samples": 735
+          },
+          {
+            "rep": 4,
+            "csv": "/home/mingus/calibration_ws/python/step_response_sweep/servo_measurement/joint_BR_Hip_Joint/range4_fwd_rep4.csv",
+            "step_size_deg": 4.0,
+            "final_value_deg": 3.707761177860516,
+            "percent_overshoot": 103.3333074190346,
+            "peak_time_s": 0.348391,
+            "zeta": -0.010436676494041487,
+            "omega_n_rad_s": 9.017924588543762,
+            "rise_time_s": 0.013661,
+            "settle_time_2pct_s": null,
+            "settled_within_window": false,
+            "n_samples": 735
+          },
+          {
+            "rep": 5,
+            "csv": "/home/mingus/calibration_ws/python/step_response_sweep/servo_measurement/joint_BR_Hip_Joint/range4_fwd_rep5.csv",
+            "step_size_deg": 4.0,
+            "final_value_deg": 3.5105009168860906,
+            "percent_overshoot": 103.3333074190346,
+            "peak_time_s": 0.446394,
+            "zeta": -0.010436676494041487,
+            "omega_n_rad_s": 7.038095864477008,
+            "rise_time_s": 0.049059,
+            "settle_time_2pct_s": null,
+            "settled_within_window": false,
+            "n_samples": 735
+          }
+        ],
+        "summary": {
+          "zeta": {
+            "n": 5,
+            "min": -0.010436676494041487,
+            "max": 0.03351871614052692,
+            "mean": 0.007145480559785876,
+            "median": -0.010436676494041487
+          },
+          "omega_n_rad_s": {
+            "n": 5,
+            "min": 4.152136310964936,
+            "max": 26.844289630117064,
+            "mean": 10.745444479700593,
+            "median": 7.038095864477008
+          },
+          "rise_time_s": {
+            "n": 5,
+            "min": 0.002751,
+            "max": 0.049059,
+            "mean": 0.0229138,
+            "median": 0.013661
+          },
+          "settle_time_2pct_s": null,
+          "percent_overshoot": {
+            "n": 5,
+            "min": 89.99992437028786,
+            "max": 103.3333074190346,
+            "mean": 97.99995419953589,
+            "median": 103.3333074190346
+          }
+        }
+      },
+      {
+        "range_label": "range4",
+        "half_range_deg": 2.0,
+        "direction": "rev",
+        "initial_deg": 2.0,
+        "target_deg": -2.0,
+        "trials": [
+          {
+            "rep": 1,
+            "csv": "/home/mingus/calibration_ws/python/step_response_sweep/servo_measurement/joint_BR_Hip_Joint/range4_rev_rep1.csv",
+            "step_size_deg": -4.0,
+            "final_value_deg": 2.020092634404915,
+            "percent_overshoot": 0.0,
+            "peak_time_s": 0.440998,
+            "zeta": null,
+            "omega_n_rad_s": null,
+            "rise_time_s": null,
+            "settle_time_2pct_s": null,
+            "settled_within_window": false,
+            "n_samples": 735
+          },
+          {
+            "rep": 2,
+            "csv": "/home/mingus/calibration_ws/python/step_response_sweep/servo_measurement/joint_BR_Hip_Joint/range4_rev_rep2.csv",
+            "step_size_deg": -4.0,
+            "final_value_deg": 2.1004576694777026,
+            "percent_overshoot": 0.0,
+            "peak_time_s": 0.024565,
+            "zeta": null,
+            "omega_n_rad_s": null,
+            "rise_time_s": null,
+            "settle_time_2pct_s": null,
+            "settled_within_window": false,
+            "n_samples": 735
+          },
+          {
+            "rep": 3,
+            "csv": "/home/mingus/calibration_ws/python/step_response_sweep/servo_measurement/joint_BR_Hip_Joint/range4_rev_rep3.csv",
+            "step_size_deg": -4.0,
+            "final_value_deg": 1.8374445807519584,
+            "percent_overshoot": 0.0,
+            "peak_time_s": 0.283092,
+            "zeta": null,
+            "omega_n_rad_s": null,
+            "rise_time_s": null,
+            "settle_time_2pct_s": null,
+            "settled_within_window": false,
+            "n_samples": 735
+          },
+          {
+            "rep": 4,
+            "csv": "/home/mingus/calibration_ws/python/step_response_sweep/servo_measurement/joint_BR_Hip_Joint/range4_rev_rep4.csv",
+            "step_size_deg": -4.0,
+            "final_value_deg": 2.085845181463527,
+            "percent_overshoot": 0.0,
+            "peak_time_s": 0.326659,
+            "zeta": null,
+            "omega_n_rad_s": null,
+            "rise_time_s": null,
+            "settle_time_2pct_s": null,
+            "settled_within_window": false,
+            "n_samples": 735
+          },
+          {
+            "rep": 5,
+            "csv": "/home/mingus/calibration_ws/python/step_response_sweep/servo_measurement/joint_BR_Hip_Joint/range4_rev_rep5.csv",
+            "step_size_deg": -4.0,
+            "final_value_deg": 2.01278732604018,
+            "percent_overshoot": 0.0,
+            "peak_time_s": 0.441067,
+            "zeta": null,
+            "omega_n_rad_s": null,
+            "rise_time_s": null,
+            "settle_time_2pct_s": null,
+            "settled_within_window": false,
+            "n_samples": 735
+          }
+        ],
+        "summary": {
+          "zeta": null,
+          "omega_n_rad_s": null,
+          "rise_time_s": null,
+          "settle_time_2pct_s": null,
+          "percent_overshoot": {
+            "n": 5,
+            "min": 0.0,
+            "max": 0.0,
+            "mean": 0.0,
+            "median": 0.0
+          }
+        }
+      }
+    ]
+  }
+}

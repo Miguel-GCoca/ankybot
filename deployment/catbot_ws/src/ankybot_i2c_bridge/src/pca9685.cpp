@@ -48,7 +48,7 @@ void PCA9685::setPWMFreq(float freq_hz)
   uint8_t prescale = static_cast<uint8_t>(prescale_val + 0.5f);
 
   uint8_t old_mode = read8(MODE1);
-  uint8_t new_mode = static_cast<uint8_t>((old_mode & 0x7F) | 0x10);  // sleep - required to set prescale
+  uint8_t new_mode = static_cast<uint8_t>((old_mode & 0x7F) | 0x10);  // sleep, required to set prescale
   write8(MODE1, new_mode);
   write8(PRESCALE, prescale);
   write8(MODE1, old_mode);
@@ -60,7 +60,7 @@ void PCA9685::setPWM(uint8_t channel, uint16_t on, uint16_t off)
 {
   // Deliberately 4 separate register writes (not one auto-increment burst,
   // even though the AI bit is set above) to match Adafruit_PWMServoDriver's
-  // own setPWM() exactly - keeps this a line-for-line port of behavior
+  // own setPWM() exactly, keeps this a line-for-line port of behavior
   // already proven on this robot, rather than an untested "optimization".
   uint8_t base = static_cast<uint8_t>(LED0_ON_L + 4 * channel);
   write8(base, static_cast<uint8_t>(on & 0xFF));

@@ -26,7 +26,6 @@ setup(
     entry_points={
         'console_scripts': [
             'policy_runner = ankybot_policy_runner.policy_runner:main',
-            'no_sensor_policy = ankybot_policy_runner.no_sensor_policy:main',
         ],
     },
 )

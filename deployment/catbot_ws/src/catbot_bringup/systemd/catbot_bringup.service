@@ -1,0 +1,15 @@
+[Unit]
+Description=Ankybot V3 ROS2 bringup (no_mega)
+After=network.target
+
+[Service]
+Type=simple
+User=pi
+Environment=ROS_DISTRO=jazzy
+Environment=CATBOT_WS=/home/pi/catbot_ws
+ExecStart=/home/pi/catbot_ws/src/catbot_bringup/scripts/start_bringup.sh
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

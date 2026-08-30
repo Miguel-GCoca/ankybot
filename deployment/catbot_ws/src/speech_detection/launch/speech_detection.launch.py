@@ -11,7 +11,7 @@ def generate_launch_description():
         DeclareLaunchArgument(
             'no_speech_recognizer',
             default_value='False',
-            description='Skip speech_2_txt (e.g. running it on another machine instead) - command_interpreter/dino_head_controller still start and just listen on /speech_to_text'),
+            description='Skip speech_2_txt (e.g. running it on another machine instead), command_interpreter/dino_head_controller still start and just listen on /speech_to_text'),
         Node(
             package='speech_detection',
             executable='speech_2_txt',

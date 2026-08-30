@@ -31,7 +31,7 @@ class CommandInterpreter(Node):
             10
         )
         self.cmd_vel_pub = self.create_publisher(Twist, 'cmd_vel', 10)
-        # /action publisher disabled 2026-07-21 - roar/sleep/push up deprioritized, not currently consumed by anything.
+        # /action publisher disabled, roar/sleep/push up deprioritized, not currently consumed by anything.
         # self.action_pub = self.create_publisher(String, 'action', 10)
 
         # Motion state: "stopped", "walking", "turning_left", "turning_right"
@@ -90,7 +90,7 @@ class CommandInterpreter(Node):
             self.angular_speed = 0.0
 
         elif command in ACTION_COMMANDS:
-            # actions (roar, sleep, push up) still halt movement; /action publish disabled 2026-07-21 (see __init__).
+            # actions (roar, sleep, push up) still halt movement; /action publish disabled (see __init__).
             self.motion = "stopped"
             self.linear_speed = 0.0
             self.angular_speed = 0.0

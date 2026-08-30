@@ -1,39 +1,3 @@
-// C++ port of mega_feedback_reader.py - polls arduino_mega_i2c_slave.ino
-// over I2C using the same "write 1-byte chunk index, read 24 bytes back in
-// the same transaction" protocol, computes velocity via finite difference
-// on this side (not on the Mega - see arduino_mega_i2c_slave.ino's header
-// comment for why), and republishes /joint_states with the same
-// JOINT_ORDER the old serial.py bridge used.
-//
-// 2026-07-22: per-channel zero-position trim (joint_zero_trim_deg) also
-// moved here from the Mega sketch, as a live ROS2 parameter with an
-// on-set callback - lets it be hand-tuned via `ros2 param set` while the
-// node runs, with no Arduino reflash and no node restart.
-//
-// 2026-07-23: velocity smoothing overhauled - user reported the real
-// joint_vel feedback is very noisy and asked for as much smoothing as
-// reasonable. The old computation was a single-tick finite difference
-// (this poll's position minus the *immediately previous* poll's, /dt) -
-// differentiation amplifies noise, and combined with deadband_rad's
-// discrete position jumps that made for a spiky signal (a jump on the
-// tick a joint clears deadband, ~0 for several ticks until the next one).
-// Two changes, stacked:
-//   1. poll_rate_hz default raised 50.0 -> 200.0, so there are ~4 raw I2C
-//      reads per 20ms control period instead of exactly 1 - independent
-//      of the Mega's own free-running 4-sample ADC average (see that
-//      file's loop()), which only smooths position, not this Pi-side
-//      velocity computation.
-//   2. Velocity is now a wider-baseline finite difference - VEL_BASELINE_
-//      TICKS polls back (4 ticks @ 200Hz = ~20ms, about one control
-//      period) instead of 1 tick back (~5ms) - which directly cuts
-//      differentiation noise sensitivity, plus an additional EMA
-//      (VEL_EMA_ALPHA) applied to the resulting velocity signal itself on
-//      top of that. Position/deadband handling (prev_pos_ + deadband_rad_)
-//      is unchanged - only how velocity is derived from the resulting
-//      pos[] history changed. Not yet tested on hardware; both constants
-//      are reasoned starting points; retune if still noisy or if the
-//      added lag (~20-30ms total on top of the raw diff) makes tracking
-//      feel sluggish.
 #include <rclcpp/rclcpp.hpp>
 #include <rcl_interfaces/msg/set_parameters_result.hpp>
 #include <sensor_msgs/msg/joint_state.hpp>
@@ -59,7 +23,7 @@ constexpr int FLOATS_PER_CHUNK = 6;
 constexpr int NUM_CHUNKS = 2;  // 6 + 6 = 12 positions total
 constexpr double DEG_TO_RAD = 0.017453292519943295;
 
-// velocity smoothing (2026-07-23, see file header note above)
+// velocity smoothing (wider-baseline diff + EMA)
 constexpr int VEL_BASELINE_TICKS = 4;   // diff against this many polls back, not just 1
 constexpr double VEL_EMA_ALPHA = 0.6;   // extra smoothing on the resulting velocity signal
 
@@ -70,7 +34,7 @@ const std::array<std::string, NUM_JOINTS> JOINT_ORDER = {
   "BR_Hip_Joint", "BR_Thigh_Joint", "BR_Foot_Joint",
 };
 
-// must match pca9685_commander_node.cpp's JOINT_ORIENTATION exactly - needed
+// must match pca9685_commander_node.cpp's JOINT_ORIENTATION exactly, needed
 // here only to apply joint_zero_trim_deg with the correct sign (the Mega no
 // longer applies any trim itself, see arduino_mega_i2c_slave.ino).
 const std::array<int, NUM_JOINTS> JOINT_ORIENTATION = {
@@ -89,11 +53,11 @@ public:
   {
     declare_parameter("i2c_bus", 1);
     declare_parameter("mega_address", 0x08);
-    declare_parameter("poll_rate_hz", 200.0);  // raised 50.0 -> 200.0 2026-07-23, see file header note
+    declare_parameter("poll_rate_hz", 200.0);  // poll rate, hardware-tested up to 200Hz
     declare_parameter("joint_states_topic", std::string("/joint_states"));
     // deadband: republish the held value instead of noise within this many radians of the last reading (covers ~0.02-0.08 rad ADC jitter).
     declare_parameter("deadband_rad", 0.04);
-    // per-channel physical zero-position trim (degrees), applied here (not on the Mega - see arduino_mega_i2c_slave.ino) so it's tunable live via `ros2 param set` with no rebuild/reflash/restart. Must match pca9685_commander_node.cpp's JOINT_ZERO_TRIM_DEG for the round-trip to self-cancel. Default below is the 2026-07-22 hardware measurement (see that file's comment for derivation) - override live only when re-measuring.
+    // per-channel physical zero-position trim (degrees), applied here (not on the Mega, see arduino_mega_i2c_slave.ino) so it's tunable live via `ros2 param set` with no rebuild/reflash/restart. Must match pca9685_commander_node.cpp's JOINT_ZERO_TRIM_DEG for the round-trip to self-cancel. Default below is from hardware measurement (see that file's comment for derivation), override live only when re-measuring.
     declare_parameter(
       "joint_zero_trim_deg",
       std::vector<double>{
@@ -178,7 +142,7 @@ private:
         }
       }
     } catch (const std::exception & e) {
-      // retries every tick forever, never crashes - reports immediately then throttles to once/3s while it persists.
+      // retries every tick forever, never crashes, reports immediately then throttles to once/3s while it persists.
       RCLCPP_WARN_THROTTLE(
         get_logger(), *get_clock(), 3000, "I2C read from Mega failed: %s", e.what());
       i2c_healthy_ = false;
@@ -195,7 +159,7 @@ private:
       raw[i] -= JOINT_ORIENTATION[i] * zero_trim_deg_[i] * DEG_TO_RAD;
     }
 
-    // deadband against the last published value - reject changes smaller than deadband_rad_.
+    // deadband against the last published value, reject changes smaller than deadband_rad_.
     std::array<double, NUM_JOINTS> pos{};
     if (have_prev_) {
       for (int i = 0; i < NUM_JOINTS; ++i) {
@@ -208,9 +172,9 @@ private:
     rclcpp::Time now = this->now();
 
     // wider-baseline finite difference (VEL_BASELINE_TICKS polls back,
-    // not just 1) - see file header note (2026-07-23). pos_history_ holds
-    // exactly the last VEL_BASELINE_TICKS ticks *not including* this one,
-    // so once full, front() is always exactly VEL_BASELINE_TICKS ticks old.
+    // not just 1). pos_history_ holds exactly the last VEL_BASELINE_TICKS
+    // ticks *not including* this one, so once full, front() is always
+    // exactly VEL_BASELINE_TICKS ticks old.
     std::array<double, NUM_JOINTS> vel{};
     vel.fill(0.0);
     bool have_raw_vel = false;
@@ -263,7 +227,7 @@ private:
   double deadband_rad_{0.04};
   bool i2c_healthy_{true};
 
-  // velocity smoothing state (2026-07-23, see file header note)
+  // velocity smoothing state
   std::deque<std::pair<rclcpp::Time, std::array<double, NUM_JOINTS>>> pos_history_;
   std::array<double, NUM_JOINTS> vel_ema_{};
   bool have_vel_ema_{false};

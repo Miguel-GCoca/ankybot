@@ -9,8 +9,6 @@ install(DIRECTORY launch
 
 install(PROGRAMS
   scripts/check_i2c_devices.py
-  scripts/check_wifi.py
-  scripts/check_microphone.py
   scripts/check_dino_head.py
   scripts/spoof_joint_states.py
   scripts/fake_imu.py

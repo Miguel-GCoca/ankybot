@@ -5,12 +5,6 @@
 
 namespace ankybot_i2c_bridge
 {
-
-// Register-level PCA9685 driver - same register addresses and init
-// sequence as Adafruit_PWMServoDriver::begin()/setPWMFreq()/setPWM(), the
-// exact same library already proven working on this robot via
-// arduino_mega_final.ino. Ported here so the Pi drives the PCA9685
-// directly over I2C instead of relaying commands through an Arduino.
 class PCA9685
 {
 public:

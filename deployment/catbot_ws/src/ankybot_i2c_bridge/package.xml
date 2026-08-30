@@ -9,8 +9,7 @@
     mega_feedback_reader_node polls the Arduino Mega's I2C feedback slave
     (arduino_mega_i2c_slave.ino) and republishes /joint_states. Replaces the
     old serial_communication_py package (serial-based bridge and its Python
-    I2C fallback nodes), deleted 2026-07-20 - this is now the only I2C
-    actuation path.
+    I2C fallback nodes), now deleted. This is the only I2C actuation path.
   </description>
   <maintainer email="mingus@todo.todo">mingus</maintainer>
   <license>TODO: License declaration</license>

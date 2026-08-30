@@ -7,50 +7,34 @@ policy_runner:
     #       policy_path:=/abs/path/to/policy.onnx
     policy_path: ""
 
-    # MUST match training: decimation(10) * sim.dt(0.002) = 0.02s -> 50Hz
+    # MUST match training: decimation(10) * sim.dt(0.002) = 0.02s, 50Hz
     control_dt: 0.02
 
     # exponential smoothing on policy output, 0 = no smoothing, closer to
-    # 1 = heavier smoothing. Lowered 0.8 -> 0.15 on 2026-07-21 (user's own
-    # hardware tuning, confirmed improvement) - same direction as raising
-    # max_joint_vel_rad_s above: both reduce artificial lag between the
-    # policy's actual intended trajectory and what gets tracked. Training
-    # itself applies no filter at all, so lower alpha moves deployment
-    # closer to what was actually trained. User reported "better in
-    # general, still not perfect" - not a final/settled value.
-    #
-    # 2026-07-23: raised 0.15 -> 0.4 to test the "gait way too fast" symptom.
-    # Did NOT fix it (gait_speed_check_0.mcap analysis: still no stable
-    # stride frequency, 10-17% of samples pinned at the max_joint_vel_rad_s
-    # cap) and user separately reported real hardware motion was worse than
-    # Tuesday (2026-07-21) night's 0.15. Reverted 2026-07-24 back to 0.15,
-    # the last value the user confirmed as an improvement on hardware.
+    # 1 = heavier smoothing. Training itself applies no filter at all, so
+    # lower alpha moves deployment closer to what was actually trained.
+    # Hardware-tuning value, not independently measured, retune if gait
+    # smoothness looks off.
     action_filter_alpha: 0.15
 
     # hard cap on the goal's slew rate (rad/s), applied after the filter
-    # above - now mainly a backstop against pathological single-tick jumps
-    # (the publish_rate_hz interpolation below handles routine smoothing).
-    # Raised 3.0 -> 8.0 on 2026-07-21 after 3.0 was found to clip legitimate
-    # gait swing velocity (~4-6 rad/s for a real trot-like stride), shrinking
-    # walking amplitude - target_pos permanently lagged desired_pos and the
-    # leg never reached full stride before the policy moved to the next
-    # phase. 8.0 stays under the rated no-load servo speed of ~10.47 rad/s
-    # (600 deg/s). Still an estimate, not measured on hardware - retune if
-    # gait amplitude still looks short, or if it's too close to the servo's
-    # real loaded (lower than no-load) max speed.
+    # above, a backstop against pathological single-tick jumps (the
+    # publish_rate_hz interpolation below handles routine smoothing).
+    # Stays under the rated no-load servo speed of ~10.47 rad/s (600 deg/s).
+    # Estimate, not measured on hardware, retune if gait amplitude looks
+    # short or too close to the servo's real loaded (lower than no-load)
+    # max speed.
     max_joint_vel_rad_s: 8.0
 
     # rate /joint_commands is actually published at (Hz), decoupled from
-    # control_dt (which stays 50Hz to match training). Added 2026-07-21:
-    # a real servo has no compliance like the sim's actuator model - it
-    # snaps to whatever position it's told. Publishing the rate-limited
-    # goal directly at only 50Hz meant each small step still fully
-    # completed well before the next tick, reading as discrete snaps
-    # instead of continuous motion. This timer linearly interpolates
-    # between each control tick's old/new goal and publishes smaller,
-    # more frequent sub-steps instead. 200Hz is a starting point (must be
-    # >= 1/control_dt = 50; diminishing returns above the PCA9685's
-    # 300Hz PWM carrier frequency) - retune on hardware.
+    # control_dt (which stays 50Hz to match training). A real servo has no
+    # compliance like the sim's actuator model, it snaps to whatever
+    # position it's told, so publishing the rate-limited goal directly at
+    # only 50Hz would read as discrete snaps instead of continuous motion.
+    # This timer linearly interpolates between each control tick's old/new
+    # goal and publishes smaller, more frequent sub-steps instead. Must be
+    # >= 1/control_dt = 50, diminishing returns above the PCA9685's 300Hz
+    # PWM carrier frequency; retune on hardware.
     publish_rate_hz: 200.0
 
     # from ActionsCfg.joint_position (scale=0.4)
@@ -74,20 +58,8 @@ policy_runner:
       - FR_Foot_Joint
 
     # absolute default joint positions (rad) matching init_state in training.
-    # hip=0.0, thigh=+0.5236 (~30deg), foot=+0.5236 (~30deg)
-    #
-    # 2026-07-23, corrected AGAIN, same day: first "fix" (0.3840 -> 0.7854)
-    # was itself wrong - it assumed the deployed checkpoint matched
-    # ankybot_v3.py's *live* value, which was mid-flight through several
-    # pose experiments that same day (v4 lineage: 30/45 -> 30/30 -> 15/45
-    # and back). The actual checkpoint in use, logs/rsl_rl/v4/
-    # base_scratch_feet30 (confirmed via that run's own saved
-    # params/env.yaml, the authoritative source - not the live ankybot_v3.py
-    # file), was trained with foot=0.5236, matching thigh, not 0.7854.
-    # The first fix was a *worse* mismatch than the original stale 0.3840
-    # (0.2618rad/15deg off vs. 0.1396rad/8deg off) - likely a real
-    # contributor to hardware motion looking worse than it did 2026-07-21.
-    # Always cross-check against the specific deployed checkpoint's own
+    # hip=0.0, thigh=+0.5236 (~30deg), foot=+0.5236 (~30deg). Always
+    # cross-check against the specific deployed checkpoint's own
     # params/env.yaml, never against ankybot_v3.py's current live value,
     # while pose experiments are ongoing.
     default_joint_pos_rad:

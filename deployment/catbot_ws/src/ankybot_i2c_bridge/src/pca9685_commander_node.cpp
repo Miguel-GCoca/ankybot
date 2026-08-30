@@ -1,8 +1,3 @@
-// C++ port of pca9685_commander.py - same JOINT_ORDER/name-keyed validation
-// contract as the old serial.py bridge, same angleToPulse() formula as
-// arduino_mega_final.ino, driving the PCA9685 directly over I2C via the
-// PCA9685 class in pca9685.hpp (which itself mirrors
-// Adafruit_PWMServoDriver's proven register sequence).
 #include <rclcpp/rclcpp.hpp>
 #include <sensor_msgs/msg/joint_state.hpp>
 
@@ -40,8 +35,8 @@ int JOINT_ORIENTATION[NUM_SERVOS] = {
 
 constexpr float DEG_TO_RAD_F = 0.01745329252f;
 
-// per-channel physical zero-position trim (degrees) - corrects for gear-tooth assembly slop; applied in raw servo-angle space, after JOINT_ORIENTATION.
-// Hardware-measured 2026-07-22 via `ros2 topic pub /joint_commands` (data[i] found by hand that reaches true physical zero with trim=0, back-solved as T_deg[i] = JOINT_ORIENTATION[i] * data[i] * (180/pi)).
+// per-channel physical zero-position trim (degrees), corrects for gear-tooth assembly slop, applied in raw servo-angle space, after JOINT_ORIENTATION.
+// Hardware-measured via `ros2 topic pub /joint_commands` (data[i] found by hand that reaches true physical zero with trim=0, back-solved as T_deg[i] = JOINT_ORIENTATION[i] * data[i] * (180/pi)).
 float JOINT_ZERO_TRIM_DEG[NUM_SERVOS] = {
   0.0f, 2.8648f, 2.8648f,  //FL
   8.5944f, 8.5944f, 5.7296f,  //FR
@@ -49,24 +44,6 @@ float JOINT_ZERO_TRIM_DEG[NUM_SERVOS] = {
   5.7296f, 2.8648f, 8.5944f   //BR
 };
 
-// per-channel reachable angle range (degrees), in the same pre-orientation
-// logical/policy-space domain as incoming /joint_commands positions - NOT
-// every joint can actually swing the full +/-90deg the servo itself is
-// capable of (e.g. the foot joints are mechanically limited to roughly
-// -30..+90 by leg geometry). Applied as a hard clamp on (servo_neutral+data)
-// before JOINT_ORIENTATION/JOINT_ZERO_TRIM_DEG are applied, so a command past
-// a joint's real limit is clipped here rather than relying only on
-// angleToPulse()'s generic +/-90 backstop downstream. Must match
-// arduino_mega_i2c_slave.ino's JOINT_RANGE_MIN_DEG/JOINT_RANGE_MAX_DEG
-// exactly (that copy is the read-side decode range; this one is the
-// write-side safety clamp). 2026-07-22: all 12 channels now hardware-measured
-// via find_calibration_extremes.py --min/--max - the final 3 (BL_Foot,
-// BR_Hip, BR_Foot) required fixing the BR_Hip/BR_Foot feedback-pot pin swap
-// and re-soldering BL_Foot's broken feedback wire first (see
-// arduino_mega_i2c_slave.ino's RAW_MIN/RAW_MAX comment for the full
-// writeup); BR_Hip_Joint's measured reachable range (+/-60deg) came out
-// narrower than FL_Hip/FR_Hip's +/-70 and is kept as measured, not forced
-// to match.
 float JOINT_RANGE_MIN_DEG[NUM_SERVOS] = {
   -70.0f, -40.0f, -30.0f,  //FL
   -70.0f, -40.0f, -30.0f,  //FR
@@ -132,7 +109,7 @@ public:
     if (static_cast<int>(servo_channels_.size()) != NUM_SERVOS ||
       static_cast<int>(servo_neutral_.size()) != NUM_SERVOS)
     {
-      // config error, not connectivity - still fatal (caught in main()), unlike the I2C failures handled below.
+      // config error, not connectivity, still fatal (caught in main()), unlike the I2C failures handled below.
       throw std::runtime_error("servo_channels/servo_neutral must have exactly 12 entries");
     }
 
@@ -190,7 +167,7 @@ private:
   void callback(const sensor_msgs::msg::JointState::SharedPtr msg)
   {
     if (!pca_) {
-      // not connected - drop the command, the reconnect timer already retries/reports on its own schedule.
+      // not connected, drop the command, the reconnect timer already retries/reports on its own schedule.
       return;
     }
 
@@ -233,7 +210,7 @@ private:
           driveChannel(i, target);
           last_target_[i] = target;
         } catch (const std::exception &) {
-          // mid-operation failure - force a full reinit via the reconnect timer rather than just retrying the write.
+          // mid-operation failure, force a full reinit via the reconnect timer rather than just retrying the write.
           pca_.reset();
           return;
         }
@@ -260,7 +237,7 @@ private:
 int main(int argc, char ** argv)
 {
   rclcpp::init(argc, argv);
-  // only genuine config errors reach here now - all I2C connectivity failures are handled internally above.
+  // only genuine config errors reach here now, all I2C connectivity failures are handled internally above.
   try {
     rclcpp::spin(std::make_shared<PCA9685CommanderNode>());
   } catch (const std::exception & e) {

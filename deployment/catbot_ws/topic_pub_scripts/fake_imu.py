@@ -10,7 +10,7 @@ from sensor_msgs.msg import Imu
 import math
 
 # --- Gait parameters ---
-GAIT_FREQ    = 2.0   # Hz — trot frequency
+GAIT_FREQ    = 2.0   # Hz, trot frequency
 ROLL_AMP     = math.radians(3.0)   # body roll oscillation (±3 deg)
 PITCH_AMP    = math.radians(2.0)   # body pitch oscillation (±2 deg)
 YAW_AMP      = math.radians(1.0)   # slight yaw sway (±1 deg)

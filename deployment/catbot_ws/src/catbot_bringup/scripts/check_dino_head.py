@@ -1,16 +1,11 @@
 #!/usr/bin/env python3
 """Continuous dino head prop presence monitor for ankybot_bringup.launch.py.
 
-Same non-blocking pattern as check_wifi.py/check_microphone.py - never
-gates the launch, just runs forever in parallel, printing once every
-POLL_PERIOD_S while not detected and once on recovery. Probes I2C address
-0x5B with a zero-byte write, the same technique check_i2c_devices.py uses
-for the other three devices - deliberately not part of that blocking check
-(the dino head is an unrelated prop, its absence shouldn't hold up the
-locomotion/sensing stack).
-
-2026-07-23: DINO_BUS moved 1 -> 3, hardcoded, same isolation move as the
-Mega's split to bus 2 - see dino_head_controller.py's 2026-07-23 note.
+Never gates the launch, runs forever in parallel, printing once while not
+detected and once on recovery. Probes I2C address 0x5B with a zero-byte
+write, deliberately not part of the blocking device check, since the dino
+head is an unrelated prop and its absence shouldn't hold up the
+locomotion/sensing stack.
 """
 import fcntl
 import os

@@ -1,29 +1,4 @@
 #!/usr/bin/env python3
-"""Drives the dino head prop (2-DOF yaw/pitch Arduino, I2C address 0x5B -
-see arduino_ws/dino_head_control/dino_head_control.ino) directly from
-speech_recognizer_node's /speech_to_text strings.
-
-2026-07-21: switched from subscribing to command_interpreter's /cmd_vel +
-/action to subscribing to /speech_to_text directly - /action was removed
-(roar/sleep/push up deprioritized, see command_interpreter.py), and the
-wake phrase ("hey anky" etc, published as "activated" once heard) needed
-a way to trigger the head's nod that didn't depend on /action existing.
-"activated" triggers a one-shot mode-2 "heard command" nod that takes
-priority over walk/turn-derived mode for ACTION_HOLD_S seconds - long
-enough to cover the sketch's own ~7s double-nod sequence (i2cSequence
-timings in setup()) so a walk/turn command recognized moments later
-doesn't cut the nod off early. Same stdlib-only os/fcntl I2C write
-topic_pub_scripts/trigger_dino.py already uses for this exact device - no
-smbus2 dependency needed for a single-byte write.
-
-2026-07-23: moved to bus 3, hardcoded (was hardcoded bus 1) - same
-isolation move as the Mega's split to bus 2 (see CLAUDE.md I2C
-Migration/IMU Integration), keeping the occasional dino write off the
-PCA9685/BNO085/Mega-shared bus 1. Needs a matching i2c-gpio (or
-i2cN-pi5) dtoverlay added to the Pi's /boot/firmware/config.txt for a
-third bus - not done from this container, pick free GPIO pins on the
-robot and wire the dino head Arduino's SDA/SCL there.
-"""
 import fcntl
 import os
 import time

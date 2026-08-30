@@ -2,25 +2,23 @@
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
   <name>catbot_bringup</name>
-  <version>0.4.1</version>
+  <version>0.4.4</version>
   <description>
     Top-level launch-only package that brings up the full on-robot Ankybot
     V3 locomotion + voice-command stack in one command: BNO085 IMU
     (ankybot_imu), PCA9685/Mega I2C actuation (ankybot_i2c_bridge, C++),
     the ONNX policy runner (ankybot_policy_runner), and speech-to-cmd_vel
     (speech_detection). Composes each package's own launch file rather than
-    duplicating node definitions - update the owning package's launch file
+    duplicating node definitions, update the owning package's launch file
     when a node's parameters change, not this one.
 
-    2026-07-20: gates the whole stack behind two sequential pre-flight
-    checks, run before any node starts - scripts/check_i2c_devices.py
-    (bundled with this package) confirms the PCA9685/Mega/BNO085 all ack
-    their addresses, then ankybot_imu's imu_diag.py confirms the BNO085's
+    Gates the whole stack behind two sequential pre-flight checks, run
+    before any node starts: scripts/check_i2c_devices.py (bundled with
+    this package) confirms the PCA9685/Mega/BNO085 all ack their
+    addresses, then ankybot_imu's imu_diag.py confirms the BNO085's
     accelerometer/gyroscope/rotation-vector actually produce readable
     samples. Either check failing aborts the launch with a clear report of
-    which device/stage failed, instead of the three previously-inconsistent
-    per-node failure behaviors (see CLAUDE.md's I2C node failure-behavior
-    table).
+    which device/stage failed.
   </description>
   <maintainer email="mingus@todo.todo">mingus</maintainer>
   <license>TODO: License declaration</license>

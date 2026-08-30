@@ -6,7 +6,7 @@ from launch_ros.actions import Node
 
 
 def generate_launch_description():
-    # sole I2C actuation path - serial_communication_py was deleted 2026-07-20, nothing else to double-drive the PCA9685 with.
+    # sole I2C actuation path, nothing else double-drives the PCA9685.
     return LaunchDescription([
         DeclareLaunchArgument(
             'no_mega',

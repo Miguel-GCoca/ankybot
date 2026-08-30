@@ -4,10 +4,9 @@ Publishes synthetic IMU data matching a quadruped walking forward.
 Simulates realistic body oscillations: roll/pitch sway, vertical bobbing,
 and corresponding angular velocities.
 
-2026-07-21: copy of topic_pub_scripts/fake_imu.py, installed here so
-ankybot_bringup.launch.py can run it when launched with no_imu:=True -
-keep both copies in sync if either changes (same convention as
-spoof_joint_states.py).
+Copy of topic_pub_scripts/fake_imu.py, installed here so
+ankybot_bringup.launch.py can run it when launched with no_imu:=True.
+Keep both copies in sync if either changes.
 """
 import rclpy
 from rclpy.node import Node
@@ -15,7 +14,7 @@ from sensor_msgs.msg import Imu
 import math
 
 # --- Gait parameters ---
-GAIT_FREQ    = 2.0   # Hz — trot frequency
+GAIT_FREQ    = 2.0   # Hz, trot frequency
 ROLL_AMP     = math.radians(3.0)   # body roll oscillation (±3 deg)
 PITCH_AMP    = math.radians(2.0)   # body pitch oscillation (±2 deg)
 YAW_AMP      = math.radians(1.0)   # slight yaw sway (±1 deg)

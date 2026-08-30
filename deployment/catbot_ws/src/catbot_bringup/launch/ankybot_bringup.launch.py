@@ -34,10 +34,6 @@ def generate_launch_description():
         get_package_share_directory('catbot_bringup'), 'scripts', 'check_i2c_devices.py')
     imu_diag_script = os.path.join(
         get_package_share_directory('ankybot_imu'), 'imu_diag.py')
-    check_wifi_script = os.path.join(
-        get_package_share_directory('catbot_bringup'), 'scripts', 'check_wifi.py')
-    check_mic_script = os.path.join(
-        get_package_share_directory('catbot_bringup'), 'scripts', 'check_microphone.py')
     check_dino_head_script = os.path.join(
         get_package_share_directory('catbot_bringup'), 'scripts', 'check_dino_head.py')
     spoof_joint_states_script = os.path.join(
@@ -56,17 +52,17 @@ def generate_launch_description():
     no_speech_recognizer_arg = DeclareLaunchArgument(
         'no_speech_recognizer',
         default_value='False',
-        description='Skip speech_2_txt (e.g. running it on another machine instead) - command_interpreter/dino_head_controller still start and just listen on /speech_to_text')
+        description='Skip speech_2_txt (e.g. running it on another machine instead), command_interpreter/dino_head_controller still start and just listen on /speech_to_text')
     no_imu_arg = DeclareLaunchArgument(
         'no_imu',
         default_value='False',
-        description='Skip the real BNO085 IMU node and spoof /imu/data instead (topic_pub_scripts/fake_imu.py) - combine with no_mega:=True for a full-spoof bringup that only needs the PCA9685 physically present')
+        description='Skip the real BNO085 IMU node and spoof /imu/data instead (topic_pub_scripts/fake_imu.py), combine with no_mega:=True for a full-spoof bringup that only needs the PCA9685 physically present')
     no_speech_detection_arg = DeclareLaunchArgument(
         'no_speech_detection',
         default_value='False',
-        description='Skip the whole speech_detection package (not just the mic node - no_speech_recognizer only does that). command_interpreter continuously republishes /cmd_vel at 10Hz (zero by default) regardless of no_speech_recognizer, which fights a manual /cmd_vel test publisher on the same topic - set this True when driving /cmd_vel by hand (e.g. topic_pub_scripts/test_cmd_vel.py)')
+        description='Skip the whole speech_detection package (not just the mic node, no_speech_recognizer only does that). command_interpreter continuously republishes /cmd_vel at 10Hz (zero by default) regardless of no_speech_recognizer, which fights a manual /cmd_vel test publisher on the same topic, set this True when driving /cmd_vel by hand (e.g. topic_pub_scripts/test_cmd_vel.py)')
 
-    # Stage 1: confirm PCA9685/Mega/BNO085 all ack before starting anything - scans all three before reporting, names every missing device.
+    # Stage 1: confirm PCA9685/Mega/BNO085 all ack before starting anything, scans all three before reporting, names every missing device.
     check_devices = ExecuteProcess(
         cmd=['python3', check_devices_script,
              '--skip-mega', LaunchConfiguration('no_mega'),
@@ -75,31 +71,21 @@ def generate_launch_description():
         output='screen',
     )
 
-    # Stage 2 (gated on stage 1): confirms the BNO085 actually produces readable data, not just that its address acks - reuses imu_diag.py.
+    # Stage 2 (gated on stage 1): confirms the BNO085 actually produces readable data, not just that its address acks, reuses imu_diag.py.
     check_imu_health = ExecuteProcess(
-        cmd=['python3', imu_diag_script, '--quiet'],
+        cmd=['python3', imu_diag_script],
         name='check_imu_health',
         output='screen',
     )
 
-    # Non-blocking background monitors, not part of the pass/fail gate above - never delay or abort the launch, just run forever alongside everything else reporting once/3s while down.
-    check_wifi = ExecuteProcess(
-        cmd=['python3', check_wifi_script],
-        name='check_wifi',
-        output='screen',
-    )
-    check_microphone = ExecuteProcess(
-        cmd=['python3', check_mic_script],
-        name='check_microphone',
-        output='screen',
-    )
+    # Non-blocking background monitor, not part of the pass/fail gate above, never delays or aborts the launch, just runs forever alongside everything else reporting once/3s while down.
     check_dino_head = ExecuteProcess(
         cmd=['python3', check_dino_head_script],
         name='check_dino_head',
         output='screen',
     )
 
-    # only runs with no_mega:=True - stands in for mega_feedback_reader_node's /joint_states so policy_runner still gets feedback.
+    # only runs with no_mega:=True, stands in for mega_feedback_reader_node's /joint_states so policy_runner still gets feedback.
     spoof_joint_states = ExecuteProcess(
         cmd=['python3', spoof_joint_states_script],
         name='spoof_joint_states',
@@ -107,7 +93,7 @@ def generate_launch_description():
         condition=IfCondition(LaunchConfiguration('no_mega')),
     )
 
-    # only runs with no_imu:=True - stands in for bno085_publisher's /imu/data.
+    # only runs with no_imu:=True, stands in for bno085_publisher's /imu/data.
     fake_imu = ExecuteProcess(
         cmd=['python3', fake_imu_script],
         name='fake_imu',
@@ -143,12 +129,12 @@ def generate_launch_description():
             ]
         no_imu = LaunchConfiguration('no_imu').perform(context).strip().lower() in ('true', '1', 'yes')
         if no_imu:
-            # no real BNO085 to health-check when it's spoofed - go straight to starting the stack.
+            # no real BNO085 to health-check when it's spoofed, go straight to starting the stack.
             return [
-                LogInfo(msg='I2C device presence check passed - IMU spoofed (no_imu:=True), skipping IMU health check.'),
+                LogInfo(msg='I2C device presence check passed, IMU spoofed (no_imu:=True), skipping IMU health check.'),
             ] + start_stack_actions()
         return [
-            LogInfo(msg='I2C device presence check passed - checking IMU sensor health...'),
+            LogInfo(msg='I2C device presence check passed, checking IMU sensor health...'),
             check_imu_health,
         ]
 
@@ -166,13 +152,13 @@ def generate_launch_description():
         if event.returncode != 0:
             return [
                 LogInfo(msg=(
-                    'IMU health check failed - see the FAIL line(s) above '
+                    'IMU health check failed, see the FAIL line(s) above '
                     'for which stage failed. Aborting bringup, no nodes '
                     'were started.')),
                 EmitEvent(event=Shutdown(reason='IMU health check failed')),
             ]
         return [
-            LogInfo(msg='IMU health check passed - starting full stack.'),
+            LogInfo(msg='IMU health check passed, starting full stack.'),
         ] + start_stack_actions()
 
     return LaunchDescription([
@@ -182,8 +168,6 @@ def generate_launch_description():
         no_imu_arg,
         no_speech_detection_arg,
         check_devices,
-        check_wifi,
-        check_microphone,
         check_dino_head,
         RegisterEventHandler(
             OnProcessExit(target_action=check_devices, on_exit=on_devices_checked)),
