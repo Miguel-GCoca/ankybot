@@ -15,11 +15,11 @@ class SpeechRecognitionNode(Node):
         self.publisher_ = self.create_publisher(String, 'speech_to_text', 10)
         self.is_recognizing = False
         self.timer = self.create_timer(0.1, self.run_recognition_loop)
-        self.api_key = '***REMOVED-AZURE-KEY***'
-        self.region='eastus'
+        self.api_key = os.environ.get('AZURE_SPEECH_KEY', '')
+        self.region = os.environ.get('AZURE_SPEECH_REGION', 'eastus')
 
         if not self.api_key or not self.region:
-            self.get_logger().error("Could not find api_key or region in DinoCommandVariables.txt")
+            self.get_logger().error("Missing AZURE_SPEECH_KEY/AZURE_SPEECH_REGION environment variables")
             raise RuntimeError("Missing Azure credentials")
 
         self.is_active = False

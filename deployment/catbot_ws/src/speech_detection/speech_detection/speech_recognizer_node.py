@@ -14,8 +14,8 @@ class SpeechRecognitionNode(Node):
 
         self.publisher_ = self.create_publisher(String, 'speech_to_text', 10)
 
-        self.api_key = '***REMOVED-AZURE-KEY***'
-        self.region='eastus'
+        self.api_key = os.environ.get('AZURE_SPEECH_KEY', '')
+        self.region = os.environ.get('AZURE_SPEECH_REGION', 'eastus')
 
         if not self.api_key or not self.region:
             raise RuntimeError("Missing Azure credentials")

@@ -1,2 +1,2 @@
-api_key=***REMOVED-AZURE-KEY***
-region=eastus
+api_key=<set via AZURE_SPEECH_KEY environment variable, not read from this file>
+region=<set via AZURE_SPEECH_REGION environment variable, not read from this file>
